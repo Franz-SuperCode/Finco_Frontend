@@ -7,8 +7,7 @@ import "./SignUp2.css"
 function SignUp1() {
 
     return (
-        <main className="SignUp1">
-            <img src={logo} alt="Logo" />
+        <main className="SignUp2">
             <Article
                 title="Setup your account"
                 description="Lorem Impsum Lorem Ipsum"
@@ -16,10 +15,10 @@ function SignUp1() {
             <form>
                 <div>
                     <label>Profile Picture</label>
-                    <input type="file"></input>
+                    <input className="textArea" type="file"></input>
                 </div>
 
-                <input type="text" placeholder="Card Number"></input>
+                <input className="cardNumber" type="text" placeholder="Card Number"></input>
 
                 <Button
                     title="Profile Complete"

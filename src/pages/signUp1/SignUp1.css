@@ -1,7 +1,33 @@
-.SignUp1 form {
+.SignUp1 {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    align-items: flex-start;
+    align-items: center;
+}
+
+
+
+.SignUp1 form {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
+    width: 80%;
+}
+
+.SignUp1 form input {
+    padding: 0.5rem;
+    border-radius: 50px;
+    border: 1px solid grey;
+}
+
+.agreeCheck {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+}
+
+.fullWidth {
+    width: 100%;
 }

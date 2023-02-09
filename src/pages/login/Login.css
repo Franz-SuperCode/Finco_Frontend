@@ -1,4 +1,4 @@
-.SignUp2 {
+.Login {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,8 +6,7 @@
 
 
 
-
-.SignUp2 form {
+.Login form {
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -17,22 +16,18 @@
     width: 80%;
 }
 
-.SignUp2 form input {
-    border-radius: 10px;
+.Login form input {
+    padding: 0.5rem;
+    border-radius: 50px;
     border: 1px solid grey;
 }
 
-
-.fullWidth {
+.agreeCheck {
+    display: flex;
+    gap: 1rem;
     width: 100%;
 }
 
-.textArea {
-    padding: 6rem 1rem;
-
-}
-
-.cardNumber {
-    padding: 1rem;
+.fullWidth {
     width: 100%;
 }

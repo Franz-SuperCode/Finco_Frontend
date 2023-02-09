@@ -8,17 +8,17 @@ function SignUp1() {
 
     return (
         <main className="SignUp1">
-            <img src={logo} alt="Logo" />
+
             <Article
                 title="Create an account"
                 description="Lorem Ipsum Lorem Ipsum"
             />
             <form>
-                <input type="text" placeholder="Name"></input>
-                <input type="text" placeholder="Email"></input>
-                <input type="text" placeholder="Password"></input>
-                <div>
-                    <input id="agreeCheck" name="agreeCheck" type="checkbox"></input>
+                <input className="fullWidth" type="text" placeholder="Name"></input>
+                <input className="fullWidth" type="text" placeholder="Email"></input>
+                <input className="fullWidth" type="text" placeholder="Password"></input>
+                <div className="agreeCheck">
+                    <input name="agreeCheck" type="checkbox"></input>
                     <label >Agree to our Terms and Service</label>
                 </div>
                 <Button
