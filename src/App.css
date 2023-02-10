@@ -1,74 +1,13 @@
+@font-face {
+    font-family: urbanist;
+    src: url(./assets//fonts/Urbanist-Regular.ttf);
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 1.2rem;
-}
-
-.App {}
-
-
-form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: rgb(219, 224, 229);
-    border-radius: 10px;
-    padding: 1rem;
-}
-
-.main_shop {
-    margin: 0 4rem;
-}
-
-
-
-.main_shop section {
-    margin: 5rem 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
-
-}
-
-.main_home {
-    margin: 5rem 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.main_home h1 {
-    font-size: 3rem;
-    width: 50%;
-}
-
-.main_home article button {
-    border: none;
-    padding: 0.2rem 1rem;
-    border-radius: 50px;
-    background-color: #daa138;
-    color: #fafafa;
-    margin-top: 1rem;
-}
-
-
-.main_shop form {
-    margin-top: 2rem;
-}
-
-#searchInput {
-    padding: 0.5rem;
-}
-
-
-.flowers {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-}
-
-.flowers img {
-    width: 100%;
+    font-family: urbanist;
 }
