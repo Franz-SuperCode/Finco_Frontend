@@ -1,0 +1,9 @@
+.Button {
+    margin-top: 4rem;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, #44BBFE, #2476D3);
+    color: #fafafa;
+
+}

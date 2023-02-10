@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import "./Button.css";
 
 
-const Button = () => {
+const Button = (props) => {
     return (
-        <div className="Button">
-
-        </div>
+        <Link to={props.path}>
+            <button className="Button">
+                {props.title}
+            </button>
+        </Link>
     );
 }
 
