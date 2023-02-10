@@ -1,0 +1,28 @@
+.Home {
+    margin: 2rem;
+    text-align: center;
+}
+
+/* .Home img {
+    border-radius: 50px;
+    width: 100%;
+} */
+
+.Home article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home article div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cardImg {
+    width: 100%;
+}
+
+.Home h2 {
+    text-align: left;
+}

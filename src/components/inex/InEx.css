@@ -1,0 +1,17 @@
+.InEx {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.InEx div {
+    padding: 2rem;
+    background-color: #F7F7F7;
+    margin: 1rem;
+    border-radius: 20px;
+}
+
+.InEx section {
+    display: flex;
+    justify-content: center;
+}
