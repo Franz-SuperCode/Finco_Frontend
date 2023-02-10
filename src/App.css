@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: urbanist;
     src: url(./assets//fonts/Urbanist-Regular.ttf);
@@ -5,9 +6,13 @@
 
 
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-size: 10px;
     font-family: urbanist;
 }
+
