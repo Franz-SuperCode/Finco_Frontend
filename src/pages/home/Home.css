@@ -26,3 +26,10 @@
 .Home h2 {
     text-align: left;
 }
+
+.spending {
+    padding: 2rem;
+    background-color: #F7F7F7;
+    margin: 1rem;
+    border-radius: 20px;
+}

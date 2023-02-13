@@ -5,6 +5,7 @@ import Heropage from './pages/Heropage/Heropage';
 import SignUp1 from './pages/signUp1/SignUp1.jsx';
 import SignUp2 from './pages/signUp2/SignUp2.jsx';
 import Login from './pages/login/Login.jsx';
+import Transaction from './pages/transaction/Transaction';
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signup1" element={<SignUp1 />} />
           <Route path="/signup2" element={<SignUp2 />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/transaction" element={<Transaction />} />
         </Routes>
       </Router>
     </div>

@@ -1,5 +1,9 @@
 .Navigation {
     display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    gap: 4rem;
+    margin: 1rem;
 }

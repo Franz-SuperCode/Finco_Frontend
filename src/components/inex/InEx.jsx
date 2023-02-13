@@ -1,7 +1,7 @@
 import "./InEx.css";
 import Income from "../../assets/img/Income.svg"
 import Expense from "../../assets/img/Expense.svg"
-import Spending from "../../assets/img/Spending.svg"
+
 
 
 const InEx = () => {
@@ -11,18 +11,16 @@ const InEx = () => {
                 <div>
                     <img src={Income} />
                     <p>Income</p>
+                    <p>$ 0</p>
                 </div>
                 <div>
                     <img src={Expense} />
                     <p>Expense</p>
+                    <p>$ 0</p>
                 </div>
             </section>
 
-            <div>
-                <img src={Spending} />
-                <p>Monthly spending limit</p>
-                <p>$ 6000</p>
-            </div>
+
         </div>
     );
 }
