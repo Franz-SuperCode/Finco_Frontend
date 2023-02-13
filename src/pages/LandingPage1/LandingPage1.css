@@ -10,21 +10,23 @@
 }
 
 .middleText {
-    width: 50%;
-    text-align: center;
-    margin: 0 auto;
+    width: 100%;
+    /* text-align: center; */
+    margin: 0px auto;
 }
 
-h1 {
+article h1 {
+    margin: 0px 0px 3rem 6rem;
     font-weight: bolder;
-    margin-bottom: 2rem;
+    width: 50%;
+    /* text-align: center; */
 }
 
-p {
-    margin-bottom: 4rem;
-    font-size: 14px;
+article p {
+    margin: 0px 0px 3rem 3rem;
+    font-size: 12px;
     width: 300px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .landingPage1 div {
@@ -34,6 +36,5 @@ p {
 }
 
 .skip {
-    width: 30%;
-    height: 10vh;
+    width: 30%
 }

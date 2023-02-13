@@ -1,7 +1,7 @@
 // Hier werden neue Produkte angelegt
 
-import landingpage1 from "../../assets/img/LandingPage1.svg";
-import Button from "../../components/button/Button";
+import landingpage1 from '../../assets/img/LandingPage1.svg';
+import Button from '../../components/button/Button';
 import './LandingPage1.css';
 
 
