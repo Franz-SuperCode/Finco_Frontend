@@ -6,6 +6,7 @@ import SignUp1 from './pages/signUp1/SignUp1.jsx';
 import SignUp2 from './pages/signUp2/SignUp2.jsx';
 import Login from './pages/login/Login.jsx';
 import Transaction from './pages/transaction/Transaction';
+import Reports from './pages/reports/Reports';
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/signup2" element={<SignUp2 />} />
           <Route path="/login" element={<Login />} />
           <Route path="/transaction" element={<Transaction />} />
+          <Route path="/reports" element={<Reports />} />
         </Routes>
       </Router>
     </div>
