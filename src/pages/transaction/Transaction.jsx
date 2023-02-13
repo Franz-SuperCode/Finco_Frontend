@@ -30,19 +30,19 @@ import fakeData from "../../fakeData.json"
 function Transaction() {
 
 
-    // const [newData, setNewData] = useState();
-    // useEffect(() => {
-    //     async function getData() {
-    //         const data = await fetch(fakeData);
-    //         const dataJS = await data.json();
-    //         setNewData(dataJS)
-    //         console.log("dataJS:", dataJS);
-    //     }
-    //     getData();
-    // }, [])
+    const [newData, setNewData] = useState();
+    useEffect(() => {
+        async function getData() {
+            const data = await fetch(`http://localhost:9999/api/transaction`);
+            const dataJS = await data.json();
+            setNewData(dataJS)
+            console.log("dataJS:", dataJS);
+        }
+        getData();
+    }, [])
 
 
-    console.log(fakeData);
+    console.log(newData);
     return (
         <main>
             Transaction SEITE
@@ -51,7 +51,18 @@ function Transaction() {
             <InEx />
 
 
-
+            {newData?.map((item, index) => {
+                return (
+                    <section className="transaction" key={index}>
+                        <img src={`https://unsplash.it/40/40?${index}`} />
+                        <div>
+                            <p>{item.category}</p>
+                            <p>{item.time}</p>
+                        </div>
+                        <p key={index}>{item.money}</p>
+                    </section>
+                )
+            })}
 
 
 
