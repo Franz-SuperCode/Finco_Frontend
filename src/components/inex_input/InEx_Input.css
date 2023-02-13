@@ -1,0 +1,32 @@
+.menu_open {
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu_open img,
+.menu_open input,
+.menu_open .InEx {
+    opacity: 0.2;
+}
+
+.InEx_Input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.InEx_Input button {
+    padding: 1rem;
+    margin: 0.2rem;
+    border-radius: 50px;
+}
+
+.incomeButton:hover {
+    background-color: rgb(137, 164, 137);
+    color: #fafafa;
+}
+
+.expenseButton:hover {
+    background-color: rgb(176, 116, 116);
+    color: #fafafa;
+}

@@ -7,6 +7,8 @@ import SignUp2 from './pages/signUp2/SignUp2.jsx';
 import Login from './pages/login/Login.jsx';
 import Transaction from './pages/transaction/Transaction';
 import Reports from './pages/reports/Reports';
+import Income from './pages/income/Income';
+import Expense from './pages/expense/Expense';
 
 
 
@@ -26,6 +28,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/transaction" element={<Transaction />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/income" element={<Income />} />
+          <Route path="/expense" element={<Expense />} />
         </Routes>
       </Router>
     </div>

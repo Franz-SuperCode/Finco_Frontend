@@ -44,60 +44,62 @@ function Transaction() {
 
     return (
         <main>
-            Transaction SEITE
-            <Article
-                title="All transaction" />
-            <div>
-                <img src={Search} />
-                <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="Search Category"></input>
-            </div>
+            <section className="allContent">
+                Transaction SEITE
+                <Article
+                    title="All transaction" />
+                <div>
+                    <img src={Search} />
+                    <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="Search Category"></input>
+                </div>
 
-            <InEx />
+                {/* Nur darstellen, falls kein Input da ist */}
+                {!inputValue && <InEx />}
 
-            {/*----------  Falls KEIN Input vorhanden ist, über das normale Daten Array mappen ----------- */}
-            {!inputValue && sortedData?.map((item, index) => {
-                return (
-                    <section className="transaction" key={index}>
-                        {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
-                        {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
-                        <article>
-                            {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
-                            <img src={`https://unsplash.it/40/40?${index}`} />
-                            <div>
-                                {/* Die Kategorie und die Uhrzeit werden angezeigt */}
-                                <p>{item.transCategory}</p>
-                                <p>{item.transTime}</p>
-                            </div>
-                            {/* Der Transaktionswert wird angezeigt */}
-                            <p key={index}>{item.transValue}</p>
-                        </article>
-                    </section>
-                );
-            })}
+                {/*----------  Falls KEIN Input vorhanden ist, über das normale Daten Array mappen ----------- */}
+                {!inputValue && sortedData?.map((item, index) => {
+                    return (
+                        <section className="transaction" key={index}>
+                            {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
+                            {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
+                            <article>
+                                {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
+                                <img src={`https://unsplash.it/40/40?${index}`} />
+                                <div>
+                                    {/* Die Kategorie und die Uhrzeit werden angezeigt */}
+                                    <p>{item.transCategory}</p>
+                                    <p>{item.transTime}</p>
+                                </div>
+                                {/* Der Transaktionswert wird angezeigt */}
+                                <p key={index}>{item.transValue}</p>
+                            </article>
+                        </section>
+                    );
+                })}
 
-            {/*----------  Falls ein Input vorhanden ist, über das Filter Array mappen ----------- */}
-            {inputValue && resultFilter?.map((item, index) => {
-                return (
-                    <section className="transaction" key={index}>
-                        {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
-                        {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
-                        <article>
-                            {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
-                            <img src={`https://unsplash.it/40/40?${index}`} />
-                            <div>
-                                {/* Die Kategorie und die Uhrzeit werden angezeigt */}
-                                <p>{item.transCategory}</p>
-                                <p>{item.transTime}</p>
-                            </div>
-                            {/* Der Transaktionswert wird angezeigt */}
-                            <p key={index}>{item.transValue}</p>
-                        </article>
-                    </section>
-                );
-            })}
+                {/*----------  Falls ein Input vorhanden ist, über das Filter Array mappen ----------- */}
+                {inputValue && resultFilter?.map((item, index) => {
+                    return (
+                        <section className="transaction" key={index}>
+                            {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
+                            {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
+                            <article>
+                                {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
+                                <img src={`https://unsplash.it/40/40?${index}`} />
+                                <div>
+                                    {/* Die Kategorie und die Uhrzeit werden angezeigt */}
+                                    <p>{item.transCategory}</p>
+                                    <p>{item.transTime}</p>
+                                </div>
+                                {/* Der Transaktionswert wird angezeigt */}
+                                <p key={index}>{item.transValue}</p>
+                            </article>
+                        </section>
+                    );
+                })}
 
 
-
+            </section>
             <Navigation />
         </main>
     )
