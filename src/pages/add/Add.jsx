@@ -140,6 +140,7 @@ function Add() {
                         type="number"
                         name="transValue"
                         id="transValue"
+                        placeholder="Value in €"
                         value={formData.transValue}
                         onChange={handleChange}
                     />
@@ -150,16 +151,20 @@ function Add() {
                         type="text"
                         name="transCategory"
                         id="transCategory"
+                        placeholder="Category"
                         value={formData.transCategory}
                         onChange={handleChange}
                     />
                 </label>
 
                 {/* Bei Expense, wird 2 im Event Value stehen. Bei Income eine 1 */}
-                <select onChange={handleChange} name="transType">
+                <select onChange={handleChange} name="transType" defaultValue="">
+                    <option disabled value=""> Select Type </option>
                     <option name="expense" value="2">Expense</option>
                     <option name="income" value="1">Income</option>
                 </select>
+
+
                 <button type="submit">Submit</button>
             </form>
             {console.log(formData)}
