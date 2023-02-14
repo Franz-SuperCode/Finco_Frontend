@@ -1,6 +1,7 @@
 [
     {
-        "name": "Luis",
+        "first_name": "Luis",
+        "surname": "Depp",
         "birthday": "1992-02-02"
     },
     {
