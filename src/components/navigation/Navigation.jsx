@@ -5,6 +5,7 @@ import pieChart from "../../assets/img/pieChart.svg"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import InEx_Input from "../inex_input/InEx_Input";
+import home from "../../assets/img/home.svg"
 
 const Navigation = () => {
 
@@ -33,7 +34,7 @@ const Navigation = () => {
             )}
 
             <div className="Navigation">
-                <Link to="/"> <p>HOME</p> </Link>
+                <Link to="/"> <img src={home} /> </Link>
                 <Link to="/transaction"> <img src={creditCard} /> </Link>
                 <img onClick={() => setIsOpen(!isOpen)} src={plusCircle} />
                 <Link to="/reports"> <img src={pieChart} /> </Link>

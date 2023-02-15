@@ -40,6 +40,29 @@ function Reports() {
                 <h2>Difference Data</h2>
                 <MyChart data={dataDiff} color="purple" type="3" />
             </div>
+
+
+            {/* {data?.map((item, index) => {
+                return (
+                    <section className="transaction" key={index}>
+                        Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt
+                        {index === 0 || item.transDate !== data[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
+                        <article>
+                            Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird
+                            <img src={`https://unsplash.it/40/40?${index}`} />
+                            <div>
+                                Die Kategorie und die Uhrzeit werden angezeigt
+                                <p>{item.transCategory}</p>
+                                <p>{item.transTime}</p>
+                            </div>
+                            Der Transaktionswert wird angezeigt
+                            <p key={index}>{item.transValue}</p>
+                        </article>
+                    </section>
+                );
+            })} */}
+
+            <Navigation />
         </main>
     );
 }
