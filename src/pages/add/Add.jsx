@@ -43,7 +43,7 @@ function Add() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetch("http://localhost:9999/api/transaction", {
+            const response = await fetch("https://fincobackend-fincobackend.up.railway.app/api/transaction", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
