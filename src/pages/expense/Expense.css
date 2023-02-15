@@ -1,0 +1,36 @@
+.expense form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.expense form input {
+    text-align: center;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.expense form select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #F7F7F7;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#expenseButton {
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, #44BBFE, #2476D3);
+    color: #fafafa;
+}

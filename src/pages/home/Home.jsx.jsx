@@ -20,7 +20,7 @@ function Home() {
             <div className="spending">
                 <img src={Spending} />
                 <p>Monthly spending limit</p>
-                <p>$ 0</p>
+                <p>5000 €</p>
             </div>
             <Navigation />
         </main>

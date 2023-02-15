@@ -1,0 +1,19 @@
+.transaction article {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.transaction article div {
+    text-align: left;
+    width: 50%;
+}
+
+.transaction article img {
+    border-radius: 50px;
+}
+
+.transaction h1 {
+    margin: 1rem;
+}
