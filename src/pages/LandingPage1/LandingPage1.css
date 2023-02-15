@@ -1,0 +1,40 @@
+.landingPage1 {
+    width: 100%;
+    margin: 20% 0%;
+    text-align: center;
+}
+
+.landingPage1 img {
+    width: 40%;
+    margin-bottom: 3rem;
+}
+
+.middleText {
+    width: 100%;
+    /* text-align: center; */
+    margin: 0px auto;
+}
+
+article h1 {
+    margin: 0px 0px 3rem 6rem;
+    font-weight: bolder;
+    width: 50%;
+    /* text-align: center; */
+}
+
+article p {
+    margin: 0px 0px 3rem 3rem;
+    font-size: 12px;
+    width: 300px;
+    /* text-align: center; */
+}
+
+.landingPage1 div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.skip {
+    width: 30%
+}
