@@ -5,13 +5,22 @@
 }
 
 .InEx div {
-    padding: 2rem;
     background-color: #F7F7F7;
     margin: 1rem;
     border-radius: 20px;
+    width: 100%;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .InEx section {
     display: flex;
     justify-content: center;
+}
+
+.InEx div h3 {
+    margin-top: 0.5rem;
+    font-weight: 900;
 }

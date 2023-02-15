@@ -51,12 +51,12 @@ const InEx = () => {
                 <div>
                     <img src={Income} />
                     <p>Income</p>
-                    <p>+ {summeIncome} €</p>
+                    <h3>+ {summeIncome} €</h3>
                 </div>
                 <div>
                     <img src={Expense} />
                     <p>Expense</p>
-                    <p>- {summeExpense} €</p>
+                    <h3>- {summeExpense} €</h3>
                 </div>
             </section>
 

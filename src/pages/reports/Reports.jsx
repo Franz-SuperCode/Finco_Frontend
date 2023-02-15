@@ -26,8 +26,7 @@ function Reports() {
 
     return (
         <main>
-            <h1>Reports SEITE</h1>
-            <Navigation />
+            <h1>Reports</h1>
             <div>
                 <h2>Income Data</h2>
                 <MyChart data={dataWithType1} color="green" type="1" />
