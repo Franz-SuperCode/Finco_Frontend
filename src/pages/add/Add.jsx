@@ -1,11 +1,14 @@
 import { useState } from "react";
 import Card from "../../assets/img/Card.svg";
 import "./Add.css";
-// import Moment from "react-moment";
-// import moment from "moment";
+import backIcon from "../../assets/img/backIcon.svg"
+import { useNavigate } from "react-router-dom";
+
+
 
 function Add() {
     const [checked, setChecked] = useState(true);
+    const nav = useNavigate();
 
     // const [value, setValue] = useState(moment().format("DD-MM-YYYY"))
 
@@ -58,58 +61,13 @@ function Add() {
 
 
 
-    // const submit = (event) => {
-    //     event.preventDefault();
-    //     const form = new FormData(event.target)
-
-    //     fetch(`http://localhost:9999/api/transaction`,
-    //         {
-    //             method: "POST",
-    //             body: form
-    //         })
-    //         .then((response) => {
-    //             if (response.ok) {
-    //                 // setUpdatePage(true);
-    //             }
-
-    //         })
-    // }
-
-
-
 
 
     return (
         <main className="add">
+            <img onClick={() => nav(-1)} src={backIcon} />
             <h1>Add Transaction</h1>
             <img className="cardImg" src={Card} />
-
-            {/* <form onSubmit={submit}>
-                <input name="transValue" type="number" placeholder="€" />
-
-                <select name="category">
-                    <option name="transCategory" value="food">Food</option>
-                    <option name="transCategory" value="other">Other</option>
-                    <option name="transCategory" value="test">Test</option>
-                </select>
-
-                <label htmlFor="transDate">Date:</label>
-                <input type="date" id="transDate" name="transDate"
-                    onChange={(e) => onChangeDate(e)}
-                    min="2000-01-01"
-                    value="2023-01-01">
-
-                </input>
-
-                <label htmlFor="transTime">Time:</label>
-                <input type="time" name="transTime" id="time" value="12:00"
-                    onChange={(e) => onChangeDate(e)}>
-                </input>
-
-                <input type="submit" value="Add Income" id="incomeButton"></input>
-
-            </form> */}
-
 
 
             {/* Beim verändern vom Datum, wird jedesmal handleChange ausgeführt */}

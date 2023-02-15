@@ -71,7 +71,7 @@ function Transaction() {
                                     <p>{item.transTime}</p>
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
-                                <p key={index}>{item.transValue}</p>
+                                <p key={index}>{item.transValue} €</p>
                             </article>
                         </section>
                     );
@@ -92,7 +92,7 @@ function Transaction() {
                                     <p>{item.transTime}</p>
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
-                                <p key={index}>{item.transValue}</p>
+                                <p key={index}>{item.transValue} €</p>
                             </article>
                         </section>
                     );
