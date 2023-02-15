@@ -13,7 +13,7 @@ function Transaction() {
     const [inputValue, setInputValue] = useState();
     useEffect(() => {
         async function getData() {
-            const data = await fetch(`http://localhost:9999/api/transaction`);
+            const data = await fetch(`https://fincobackend-fincobackend.up.railway.app/api/transaction`);
             const dataJS = await data.json();
             setNewData(dataJS)
             console.log("dataJS:", dataJS);

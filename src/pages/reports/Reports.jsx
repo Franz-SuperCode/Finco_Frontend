@@ -7,7 +7,7 @@ function Reports() {
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch("http://localhost:9999/api/transaction");
+            const response = await fetch("https://fincobackend-fincobackend.up.railway.app/api/transaction");
             const jsonData = await response.json();
             setData(jsonData);
         }
