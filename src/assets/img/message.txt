@@ -23,31 +23,28 @@ function Login() {
         // console.log(baseUrl)
         // Definiere die Endpunkte für die Authentifizierung entweder für die Registrierung oder für den Login.
         const endPoint = register ? '/register' : '/login'
+        
+       // Get user's token from localstorage
+        const token = localStorage.getItem('token');
 
-        // Rufe die Backend-API mit fetch auf und übergeben die E-Mail und das Passwort des Benutzers an den Server.
+        // Rufe die Backend-API mit fetch auf und übergeben die E-Mail, das Passwort und den Token des Benutzers an den Server.
         const response = await fetch(baseUrl + endPoint, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'token': token
             },
             credentials: 'include',
             body: JSON.stringify({ email, password })
         })
 
-        // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter.
+        // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter und speichere den Token im lokalen Speicher.
 
-        /*Wenn die Antwort des Servers positiv (OK) ist, wird der Ausdruck auf der linken Seite des Fragezeichens ausgewertet (in diesem Fall register ? setRegister(false)), andernfalls der Ausdruck auf der rechten Seite (in diesem Fall navigate('/')).
-        
-        register ? setRegister(false) ist ein bedingter Ausdruck, der bedeutet: Wenn register true ist, rufe die setRegister(false) Funktion auf, ansonsten überspringe sie.
-        
-        navigate('/') navigiert zu der angegebenen URL (in diesem Fall die Startseite "/"), wenn die Serverantwort nicht positiv ist. 
-        Insgesamt sorgt diese Zeile also dafür, dass bei einer erfolgreichen Serverantwort das Registrierungsformular ausgeblendet wird 
-        und der Benutzer zur Hauptseite weitergeleitet wird. Wenn die Serverantwort nicht erfolgreich ist, wird der Benutzer ebenfalls zur Hauptseite weitergeleitet.*/
-
-
-
-        if (response.ok) register ? setRegister(false) : navigate('/')
-
+        if (response.ok) {
+            register ? setRegister(false) : navigate('/')
+            const token = response.token;
+            localStorage.setItem('token', token);
+        }
         // fetch(`${process.env.REACT_APP_BACKEND_URL}/${register?'register':'login'}`)
     }
 
@@ -61,32 +58,4 @@ function Login() {
                 <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="z.B. batman@gotham.gcpd" />
                 <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="sicheres Password" />
                 <button onClick={sendAuthentification}>{register ? 'Registrieren' : 'Login'}</button>
-                <p onClick={() => setRegister(prev => !prev)}>{register ? 'Du willst dich lieber einloggen?' : 'Magst du dich registrieren?'}</p>
-            </div>
-
-
-
-
-
-            <Article
-                title="Welcome Back"
-                description="Lorem Ipsum Lorem Ipsum"
-            />
-            <form>
-                <input className="fullWidth" type="text" placeholder="Email"></input>
-                <input className="fullWidth" type="text" placeholder="Password"></input>
-                <Button
-                    title="Login"
-                    path="/"
-                />
-            </form>
-            <Footer
-                description="Dont have any account?"
-                path="/signUp1"
-                textLinkTo="Sign up"
-            />
-        </main>
-    )
-}
-
-export default Login;
+                <p

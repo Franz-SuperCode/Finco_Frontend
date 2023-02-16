@@ -14,7 +14,7 @@
     margin: 0px auto;
 }
 
-article h1 {
+/* article h1 {
     margin: 0px 0px 3rem 6rem;
     font-weight: bolder;
     width: 50%;
@@ -24,7 +24,7 @@ article p {
     margin: 0px 0px 3rem 3rem;
     font-size: 12px;
     width: 300px;
-}
+} */
 
 .landingPage2 div {
     display: flex;

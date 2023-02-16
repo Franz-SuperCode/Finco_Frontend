@@ -4,4 +4,5 @@
 
 - `npm start`
 - `npm install react-router-dom`
+- `npm i react-chartjs-2 chart.js`   
 
