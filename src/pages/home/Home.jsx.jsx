@@ -11,6 +11,7 @@ function Home() {
     const [user, setUser] = useState(null)
     const navigate = useNavigate()
 
+
     useEffect(() => {
         // Funktion, die die Daten des Benutzers vom Backend-Server holt
         const userDaten = async () => {

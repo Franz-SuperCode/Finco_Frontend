@@ -17,48 +17,45 @@ function Login() {
     const navigate = useNavigate()
 
     // Definiere eine Funktion, um die Authentifizierung des Benutzers an die Backend-API zu senden.
-    const sendAuthentification = async (e) => {
-        e.preventDefault()
+    const sendAuthentification = async () => {
         // Definiere die Basis-URL für das Backend anhand der Umgebungsvariablen-Datei.
-
-        // const baseUrl = process.env.REACT_APP_BACKEND_URL
         const baseUrl = process.env.REACT_APP_BACKEND_URL
         // console.log(baseUrl)
-
         // Definiere die Endpunkte für die Authentifizierung entweder für die Registrierung oder für den Login.
         const endPoint = register ? '/register' : '/login'
+        
+       // Get user's token from localstorage
+        const token = localStorage.getItem('token');
 
-        // Erstelle ein FormData-Objekt und füge die E-Mail- und Passwort-Eingaben hinzu.
-        const formData = new FormData()
-        formData.append('email', email)
-        formData.append('password', password)
-
-        // Rufe die Backend-API mit fetch auf und übergeben das FormData-Objekt an den Server.
+        // Rufe die Backend-API mit fetch auf und übergeben die E-Mail, das Passwort und den Token des Benutzers an den Server.
         const response = await fetch(baseUrl + endPoint, {
             method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'token': token
+            },
             credentials: 'include',
-            body: formData
+            body: JSON.stringify({ email, password })
         })
 
-        // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter.
-        if (response.ok) register ? setRegister(false) : navigate('/')
+        // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter und speichere den Token im lokalen Speicher.
+
+        if (response.ok) {
+            register ? setRegister(false) : navigate('/')
+            const token = response.token;
+            localStorage.setItem('token', token);
+        }
+        // fetch(`${process.env.REACT_APP_BACKEND_URL}/${register?'register':'login'}`)
     }
 
     // Die AuthForm-Komponente gibt ein HTML-Formular mit Eingabefeldern für E-Mail und Passwort sowie eine Schaltfläche zum Einloggen oder Registrieren zurück.
+
     return (
         <main className="Login">
 
-            <form onSubmit={sendAuthentification}>
-                <div>
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="z.B. franz@supercode.de" />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="sicheres Password" />
-                    <button type="submit">{register ? 'Registrieren' : 'Login'}</button>
-                    <p onClick={() => setRegister(prev => !prev)}>{register ? 'Du willst dich lieber einloggen?' : 'Magst du dich registrieren?'}</p>
-                </div>
-            </form>
 
-        </main>
-    )
-}
-
-export default Login;
+            <div>
+                <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="z.B. batman@gotham.gcpd" />
+                <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="sicheres Password" />
+                <button onClick={sendAuthentification}>{register ? 'Registrieren' : 'Login'}</button>
+                <p
