@@ -18,7 +18,7 @@ function Home() {
             // URL und Endpunkt des Backend-Servers werden definiert
             const baseUrl = process.env.REACT_APP_BACKEND_URL
             //Route um alle Daten vom User zu bekommen
-            const endpoint = '/user'
+            const endpoint = '/login'
             // HTTP-Anfrage zum Backend-Server wird ausgeführt
             const response = await fetch(baseUrl + endpoint, {
                 credentials: 'include'
