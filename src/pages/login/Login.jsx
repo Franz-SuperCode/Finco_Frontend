@@ -12,6 +12,8 @@ function Login() {
     const [register, setRegister] = useState(false)
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [name, setName] = useState("")
+
 
     // Rufe die useNavigate-Funktion auf, um das Programm zur Weiterleitung des Benutzers nach der Authentifizierung aufzurufen.
     const navigate = useNavigate()
@@ -33,6 +35,7 @@ function Login() {
         formData.append('email', email)
         formData.append('password', password)
 
+
         // Rufe die Backend-API mit fetch auf und übergeben das FormData-Objekt an den Server.
         const response = await fetch(baseUrl + endPoint, {
             method: 'POST',
@@ -50,10 +53,12 @@ function Login() {
 
             <form onSubmit={sendAuthentification}>
                 <div>
-                    <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="z.B. franz@supercode.de" />
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="sicheres Password" />
-                    <button type="submit">{register ? 'Registrieren' : 'Login'}</button>
-                    <p onClick={() => setRegister(prev => !prev)}>{register ? 'Du willst dich lieber einloggen?' : 'Magst du dich registrieren?'}</p>
+                    <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="E-Mail" />
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
+                    {register && <input onChange={(e) => setName(e.target.value)} type="name" placeholder="Name" />}
+
+                    <button type="submit">{register ? 'Register' : 'Login'}</button>
+                    <p onClick={() => setRegister(prev => !prev)}>{register ? 'Already have an account?' : 'You don´t have an account yet?'}</p>
                 </div>
             </form>
 
