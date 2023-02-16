@@ -10,6 +10,9 @@ import Landingpage2 from './pages/LandingPage2/LandingPage2';
 import Reports from './pages/reports/Reports';
 import Add from './pages/add/Add';
 import Expense from './pages/expense/Expense';
+import Transaction from './pages/transaction/Transaction';
+
+
 
 
 

@@ -2,12 +2,15 @@ import logo from "../../assets/img/logo.svg"
 import Article from "../../components/article/Article.jsx"
 import Button from "../../components/button/Button";
 import Footer from "../../components/footer/Footer.jsx";
-
 import "./SignUp1.css"
+
 function SignUp1() {
+
+
 
     return (
         <main className="SignUp1">
+
 
             <Article
                 title="Create an account"
