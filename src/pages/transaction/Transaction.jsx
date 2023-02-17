@@ -14,7 +14,9 @@ function Transaction() {
     const [inputValue, setInputValue] = useState();
     useEffect(() => {
         async function getData() {
-            const data = await fetch(`https://fincobackend-fincobackend.up.railway.app/api/transaction`);
+            const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+            const endpoint = '/transaction'
+            const data = await fetch(baseUrl + endpoint);
             const dataJS = await data.json();
             setNewData(dataJS)
             console.log("dataJS:", dataJS);

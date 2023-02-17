@@ -8,34 +8,47 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
     // State-Hook "user" wird initialisiert mit null, weil der Benutzer am Anfang noch nicht eingeloggt ist
-    const [user, setUser] = useState(null)
+    const [userData, setUserData] = useState(null)
     const navigate = useNavigate()
 
 
     useEffect(() => {
         // Funktion, die die Daten des Benutzers vom Backend-Server holt
-        const userDaten = async () => {
+        const getUserDaten = async () => {
             // URL und Endpunkt des Backend-Servers werden definiert
-            const baseUrl = process.env.REACT_APP_BACKEND_URL
+            const baseUrl = process.env.REACT_APP_BACKEND_URL2
             //Route um alle Daten vom User zu bekommen
-            const endpoint = '/login'
+            const endpoint = '/user'
             // HTTP-Anfrage zum Backend-Server wird ausgeführt
-            const response = await fetch(baseUrl + endpoint, {
+            const data = await fetch(baseUrl + endpoint, {
                 credentials: 'include'
             })
+            console.log(data);
+
+
+
             // Wenn HTTP-Anfrage erfolgreich war, werden die Benutzerdaten im State "user" gesetzt
             // Andernfalls wird der Benutzer zurück zum Login-Bildschirm navigiert
-            if (response.ok) {
-                const data = await response.json()
-                setUser(data.email)
+            if (data.ok) {
+                const umgewandelt = await data.json()
+                console.log(umgewandelt);
+                setUserData(umgewandelt.email)
+                userData && console.log(userData);
+
             } else {
+                console.log(`Error fetching user data: ${data.status} ${data.statusText}`)
                 navigate('/login')
             }
-            console.log(user.email);
+            // console.log(user.email);
         }
         // Aufruf der Funktion, die die Benutzerdaten holt
-        userDaten()
-    })
+        getUserDaten()
+    }, [])
+
+    useEffect(() => {
+        console.log(userData);
+    }, [userData]);
+
 
     return (
         <main className="Home">
@@ -43,7 +56,7 @@ function Home() {
                 <div>
                     <p>Welcome Back</p>
                     {/* Test ob es klappt mit User */}
-                    <h1>Jonathan Doe {user}</h1>
+                    <h1>Jonathan Doe {userData}</h1>
                 </div>
                 <img className="profilePic" src="https://unsplash.it/50/50?1" />
             </article>
