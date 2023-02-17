@@ -15,13 +15,14 @@ function Reports() {
     }, []);
 
     // Filtern Sie die Daten nach `transType` 1 und 2
-    const dataWithType1 = data.filter((datum) => datum.transType == 1);
-    const dataWithType2 = data.filter((datum) => datum.transType == 2);
+    const dataWithType1 = data.filter((item) => item.transType == 1);
+    const dataWithType2 = data.filter((item) => item.transType == 2);
+
 
     // Berechnen Sie die Differenz zwischen `transType` 1 und 2
-    const dataDiff = dataWithType1.map((datum, index) => ({
-        transDate: datum.transDate,
-        transValue: parseFloat(datum.transValue) - parseFloat(dataWithType2[index].transValue)
+    const dataDiff = dataWithType1.map((item, index) => ({
+        transDate: item.transDate,
+        transValue: parseFloat(item.transValue) - parseFloat(dataWithType2[index].transValue)
     }));
 
     return (

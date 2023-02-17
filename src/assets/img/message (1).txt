@@ -1,0 +1,92 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../../assets/img/logo.svg"
+import Article from "../../components/article/Article.jsx"
+import Button from "../../components/button/Button";
+import Footer from "../../components/footer/Footer.jsx";
+import "./Login.css"
+
+function Login() {
+
+    // Definiere drei Zustandsvariablen mit useState, die die Registrierung, die E-Mail und das Passwort des Benutzers speichern.
+    const [register, setRegister] = useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    // Rufe die useNavigate-Funktion auf, um das Programm zur Weiterleitung des Benutzers nach der Authentifizierung aufzurufen.
+    const navigate = useNavigate()
+
+    // Definiere eine Funktion, um die Authentifizierung des Benutzers an die Backend-API zu senden.
+    const sendAuthentification = async () => {
+        // Definiere die Basis-URL für das Backend anhand der Umgebungsvariablen-Datei.
+        const baseUrl = process.env.REACT_APP_BACKEND_URL
+        // console.log(baseUrl)
+        // Definiere die Endpunkte für die Authentifizierung entweder für die Registrierung oder für den Login.
+        const endPoint = register ? '/register' : '/login'
+
+        // Rufe die Backend-API mit fetch auf und übergeben die E-Mail und das Passwort des Benutzers an den Server.
+        const response = await fetch(baseUrl + endPoint, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({ email, password })
+        })
+
+        // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter.
+
+        /*Wenn die Antwort des Servers positiv (OK) ist, wird der Ausdruck auf der linken Seite des Fragezeichens ausgewertet (in diesem Fall register ? setRegister(false)), andernfalls der Ausdruck auf der rechten Seite (in diesem Fall navigate('/')).
+        
+        register ? setRegister(false) ist ein bedingter Ausdruck, der bedeutet: Wenn register true ist, rufe die setRegister(false) Funktion auf, ansonsten überspringe sie.
+        
+        navigate('/') navigiert zu der angegebenen URL (in diesem Fall die Startseite "/"), wenn die Serverantwort nicht positiv ist. 
+        Insgesamt sorgt diese Zeile also dafür, dass bei einer erfolgreichen Serverantwort das Registrierungsformular ausgeblendet wird 
+        und der Benutzer zur Hauptseite weitergeleitet wird. Wenn die Serverantwort nicht erfolgreich ist, wird der Benutzer ebenfalls zur Hauptseite weitergeleitet.*/
+
+
+
+        if (response.ok) register ? setRegister(false) : navigate('/')
+
+        // fetch(`${process.env.REACT_APP_BACKEND_URL}/${register?'register':'login'}`)
+    }
+
+    // Die AuthForm-Komponente gibt ein HTML-Formular mit Eingabefeldern für E-Mail und Passwort sowie eine Schaltfläche zum Einloggen oder Registrieren zurück.
+
+    return (
+        <main className="Login">
+
+
+            <div>
+                <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="z.B. batman@gotham.gcpd" />
+                <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="sicheres Password" />
+                <button onClick={sendAuthentification}>{register ? 'Registrieren' : 'Login'}</button>
+                <p onClick={() => setRegister(prev => !prev)}>{register ? 'Du willst dich lieber einloggen?' : 'Magst du dich registrieren?'}</p>
+            </div>
+
+
+
+
+
+            <Article
+                title="Welcome Back"
+                description="Lorem Ipsum Lorem Ipsum"
+            />
+            <form>
+                <input className="fullWidth" type="text" placeholder="Email"></input>
+                <input className="fullWidth" type="text" placeholder="Password"></input>
+                <Button
+                    title="Login"
+                    path="/"
+                />
+            </form>
+            <Footer
+                description="Dont have any account?"
+                path="/signUp1"
+                textLinkTo="Sign up"
+            />
+        </main>
+    )
+}
+
+export default Login;

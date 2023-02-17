@@ -19,9 +19,6 @@
     align-items: flex-start;
 }
 
-.cardImg {
-    width: 100%;
-}
 
 .Home h2 {
     text-align: left;
@@ -32,4 +29,14 @@
     background-color: #F7F7F7;
     margin: 1rem;
     border-radius: 20px;
+}
+
+.cardImg {
+    width: 100%;
+    position: relative;
+    transition: transform 0.5s;
+}
+
+.cardImg:hover {
+    transform: rotateY(180deg);
 }
