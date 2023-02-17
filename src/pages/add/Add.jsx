@@ -65,66 +65,54 @@ function Add() {
 
     return (
         <main className="add">
-            <img onClick={() => nav(-1)} src={backIcon} />
+            <div>
+                <img className="backbutton" alt="backbutton" onClick={() => nav(-1)} src={backIcon} />
+                <img className="profilePic" src="https://unsplash.it/50/50?1" />
+            </div>
+
             <h1>Add Transaction</h1>
             <img className="cardImg" src={Card} />
 
 
             {/* Beim verändern vom Datum, wird jedesmal handleChange ausgeführt */}
             <form onSubmit={handleSubmit}>
-                <label htmlFor="transDate">
-                    Date:
-                    <input
-                        type="date"
-                        name="transDate"
-                        id="transDate"
-                        value={formData.transDate}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label htmlFor="transTime">
-                    Time:
-                    <input
-                        type="time"
-                        name="transTime"
-                        id="transTime"
-                        value={formData.transTime}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label htmlFor="transValue">
-                    Amount (Euro):
-                    <input
-                        type="number"
-                        name="transValue"
-                        id="transValue"
-                        placeholder="Value in €"
-                        value={formData.transValue}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label htmlFor="transCategory">
-                    Category:
-                    <input
-                        type="text"
-                        name="transCategory"
-                        id="transCategory"
-                        placeholder="Category"
-                        value={formData.transCategory}
-                        onChange={handleChange}
-                    />
-                </label>
-
-                {/* Bei Expense, wird 2 im Event Value stehen. Bei Income eine 1 */}
-                <select onChange={handleChange} name="transType" defaultValue="">
-                    <option disabled value=""> Select Type </option>
-                    <option name="expense" value="2">Expense</option>
-                    <option name="income" value="1">Income</option>
-                </select>
-
-
+                <label htmlFor="transDate">Date</label>
+                <input
+                    type="date"
+                    name="transDate"
+                    id="transDate"
+                    value={formData.transDate}
+                    onChange={handleChange}
+                />
+                <label htmlFor="transTime">Time</label>
+                <input
+                    type="time"
+                    name="transTime"
+                    id="transTime"
+                    value={formData.transTime}
+                    onChange={handleChange}
+                />
+                <label htmlFor="transValue">Amount [€]</label>
+                <input
+                    type="number"
+                    name="transValue"
+                    id="transValue"
+                    placeholder="Value in €"
+                    value={formData.transValue}
+                    onChange={handleChange}
+                />
+                <label htmlFor="transCategory">Category</label>
+                <input
+                    type="text"
+                    name="transCategory"
+                    id="transCategory"
+                    placeholder="Category"
+                    value={formData.transCategory}
+                    onChange={handleChange}
+                />
                 <button type="submit">Submit</button>
             </form>
+
             {console.log(formData)}
         </main>
     );
