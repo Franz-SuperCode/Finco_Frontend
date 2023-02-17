@@ -19,8 +19,6 @@ import Remove from './pages/remove/Remove';
 
 
 
-
-
 function App() {
 
   return (
