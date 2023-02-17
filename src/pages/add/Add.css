@@ -31,7 +31,8 @@
     margin-bottom: 1rem;
 }
 
-.add form input {
+.add form input,
+.add form select {
     text-align: center;
     width: 100%;
     padding: 2rem 1rem;
@@ -43,15 +44,6 @@
 }
 
 
-.add form select {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    background-color: #F7F7F7;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    text-align: center;
-}
 
 .add form button {
     padding: 1rem 3rem;

@@ -16,6 +16,16 @@
 }
 
 .transaction h1 {
+    margin: 1rem;
+}
+
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
     margin: 2rem;
 }
 
@@ -26,4 +36,5 @@
     box-shadow: 1px 1px 5px white;
     margin: 2rem;
     /* border-radius: 10px; */
+
 }
