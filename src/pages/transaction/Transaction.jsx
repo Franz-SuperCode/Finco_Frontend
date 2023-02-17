@@ -5,7 +5,7 @@ import Navigation from "../../components/navigation/Navigation";
 import "./Transaction.css"
 import fakeData from "../../fakeData.json"
 import Search from "../../assets/img/Search.svg"
-
+import bin from "../../assets/img/bin.svg"
 
 
 function Transaction() {
@@ -70,9 +70,9 @@ function Transaction() {
             <section className="allContent">
                 <Article
                     title="All transaction" />
-                <div>
-                    <img src={Search} />
-                    <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="Search Category"></input>
+                <div className="searchbar">
+                    {/* <img src={Search} /> */}
+                    <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="🔍     Search Category"></input>
                 </div>
 
                 {/* Nur darstellen, falls kein Input da ist */}
@@ -101,8 +101,8 @@ function Transaction() {
                                     <p key={index} className="red">{item.transValue} €</p>
                                 )}
 
-
-                                <button _id={item._id} onClick={(event) => deleteData(event, item._id)}>DELETE</button>
+                                <img className="bin" src={bin} _id={item._id} onClick={(event) => deleteData(event, item._id)} />
+                                {/* <button _id={item._id} onClick={(event) => deleteData(event, item._id)}><img src={bin} /></button> */}
                             </article>
                         </section>
                     );
@@ -124,7 +124,15 @@ function Transaction() {
                                     <p>{item.transTime}</p>
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
-                                <p key={index}>{item.transValue} €</p>
+                                {/* Falls transType 1 ist, soll die Farbe grün werden, sonst rot */}
+                                {item.transType == 1 ? (
+                                    <p key={index} className="green">{item.transValue} €</p>
+                                ) : (
+                                    <p key={index} className="red">{item.transValue} €</p>
+                                )}
+
+
+                                <button _id={item._id} onClick={(event) => deleteData(event, item._id)}>DELETE</button>
                             </article>
                         </section>
                     );
