@@ -32,7 +32,7 @@ function Home() {
             if (data.ok) {
                 const umgewandelt = await data.json()
                 console.log(umgewandelt);
-                setUserData(umgewandelt.email)
+                setUserData(umgewandelt.name)
                 userData && console.log(userData);
 
             } else {
@@ -56,7 +56,7 @@ function Home() {
                 <div>
                     <p>Welcome Back</p>
                     {/* Test ob es klappt mit User */}
-                    <h1>Jonathan Doe {userData}</h1>
+                    <h1>{userData}</h1>
                 </div>
                 <img className="profilePic" src="https://unsplash.it/50/50?1" />
             </article>

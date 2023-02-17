@@ -34,6 +34,7 @@ function Login() {
         const formData = new FormData()
         formData.append('email', email)
         formData.append('password', password)
+        formData.append('name', name)
 
 
         // Rufe die Backend-API mit fetch auf und übergeben das FormData-Objekt an den Server.
