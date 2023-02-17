@@ -45,8 +45,10 @@ function Add() {
     // Hier werden alle Daten aus dem formData ans Backend geschickt beim klick auf den Button
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+        const endpoint = `/transaction`
         try {
-            const response = await fetch("https://fincobackend-fincobackend.up.railway.app/api/transaction", {
+            const response = await fetch(baseUrl + endpoint, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -110,6 +112,11 @@ function Add() {
                     value={formData.transCategory}
                     onChange={handleChange}
                 />
+                <select onChange={handleChange} name="transType" defaultValue="">
+                    <option disabled value=""> Select Type </option>
+                    <option name="expense" value="2">Expense</option>
+                    <option name="income" value="1">Income</option>
+                </select>
                 <button type="submit">Submit</button>
             </form>
 

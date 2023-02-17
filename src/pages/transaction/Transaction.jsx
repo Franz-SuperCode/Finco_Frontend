@@ -81,6 +81,7 @@ function Transaction() {
 
                 {/*----------  Falls KEIN Input vorhanden ist, über das normale Daten Array mappen ----------- */}
                 {!inputValue && sortedData?.map((item, index) => {
+                    console.log(item);
                     return (
                         <section className="transaction" key={index}>
                             {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
@@ -90,11 +91,18 @@ function Transaction() {
                                 <img src={`https://unsplash.it/40/40?${index}`} />
                                 <div>
                                     {/* Die Kategorie und die Uhrzeit werden angezeigt */}
-                                    <p>{item.transCategor}</p>
+                                    <p>{item.transCategory}</p>
                                     <p>{item.transTime}</p>
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
-                                <p key={index}>{item.transValue} €</p>
+                                {/* Falls transType 1 ist, soll die Farbe grün werden, sonst rot */}
+                                {item.transType == 1 ? (
+                                    <p key={index} className="green">{item.transValue} €</p>
+                                ) : (
+                                    <p key={index} className="red">{item.transValue} €</p>
+                                )}
+
+
                                 <button _id={item._id} onClick={(event) => deleteData(event, item._id)}>DELETE</button>
                             </article>
                         </section>
@@ -103,6 +111,7 @@ function Transaction() {
 
                 {/*----------  Falls ein Input vorhanden ist, über das Filter Array mappen ----------- */}
                 {inputValue && resultFilter?.map((item, index) => {
+
                     return (
                         <section className="transaction" key={index}>
                             {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
