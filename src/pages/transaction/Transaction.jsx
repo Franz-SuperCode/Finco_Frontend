@@ -7,6 +7,7 @@ import fakeData from "../../fakeData.json"
 import Search from "../../assets/img/Search.svg"
 
 
+
 function Transaction() {
     //! Daten aus API holen
     const [newData, setNewData] = useState();
@@ -21,7 +22,7 @@ function Transaction() {
         getData();
     }, [])
 
-    //! Daten sotieren nach Datum absteigend -------
+    //! Daten sortieren nach Datum absteigend -------
     const sortedData = newData?.sort((a, b) => {
         //Erzeuge aus transDate ein Datum-Objekt
         const dateA = new Date(a.transDate);
@@ -45,7 +46,6 @@ function Transaction() {
     return (
         <main>
             <section className="allContent">
-                Transaction SEITE
                 <Article
                     title="All transaction" />
                 <div>

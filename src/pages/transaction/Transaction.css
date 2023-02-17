@@ -1,19 +1,29 @@
-.transaction article {
+/* .transaction article {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     margin-bottom: 1rem;
-}
+} */
 
 .transaction article div {
     text-align: left;
-    width: 50%;
+    width: 60%;
 }
 
 .transaction article img {
-    border-radius: 50px;
+    border-radius: 3rem;
+    height: 3rem;
 }
 
 .transaction h1 {
-    margin: 1rem;
+    margin: 2rem;
+}
+
+
+
+.transaction article {
+    display: flex;
+    box-shadow: 1px 1px 5px white;
+    margin: 2rem;
+    /* border-radius: 10px; */
 }
