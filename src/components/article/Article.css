@@ -1,10 +1,40 @@
-.Article {
+/* .Article {
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: center;
+    font-size: 1.5rem;
+} */
+
+/* .Article div img {
+    align-self: flex-start;
+} */
+
+.Article {
+    display: flex;
+    flex-direction: column;
 }
 
-.Article img {
-    align-self: flex-start;
+.Article div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Article .profilePic {
+    border-radius: 50px;
+    width: 3rem;
+    height: 3rem;
+}
+
+.Article .logo {
+
+    /* width: 3rem; */
+    /* height: 3rem; */
+}
+
+.Article section {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2rem 0 3rem;
 }
