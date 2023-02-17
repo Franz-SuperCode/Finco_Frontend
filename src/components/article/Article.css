@@ -27,10 +27,8 @@
     height: 3rem;
 }
 
-.Article .logo {
-
-    /* width: 3rem; */
-    /* height: 3rem; */
+.logo {
+    width: 10%;
 }
 
 .Article section {

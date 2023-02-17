@@ -87,7 +87,7 @@ function Transaction() {
                             {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
                             <article>
                                 {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
-                                <img src={`https://unsplash.it/40/40?${index}`} />
+                                <img className="catImg" src={`https://unsplash.it/40/40?${index}`} />
                                 <div>
                                     {/* Die Kategorie und die Uhrzeit werden angezeigt */}
                                     <p>{item.transCategory}</p>
@@ -95,13 +95,15 @@ function Transaction() {
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
                                 {/* Falls transType 1 ist, soll die Farbe grün werden, sonst rot */}
-                                {item.transType == 1 ? (
-                                    <p key={index} className="green">{item.transValue} €</p>
-                                ) : (
-                                    <p key={index} className="red">{item.transValue} €</p>
-                                )}
+                                <div className="muell">
+                                    {item.transType == 1 ? (
+                                        <p key={index} className="green">{item.transValue} €</p>
+                                    ) : (
+                                        <p key={index} className="red">{item.transValue} €</p>
+                                    )}
 
-                                <img className="bin" src={bin} _id={item._id} onClick={(event) => deleteData(event, item._id)} />
+                                    <img className="bin" src={bin} _id={item._id} onClick={(event) => deleteData(event, item._id)} />
+                                </div>
                                 {/* <button _id={item._id} onClick={(event) => deleteData(event, item._id)}><img src={bin} /></button> */}
                             </article>
                         </section>
@@ -117,7 +119,7 @@ function Transaction() {
                             {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
                             <article>
                                 {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
-                                <img src={`https://unsplash.it/40/40?${index}`} />
+                                <img className="catImg" src={`https://unsplash.it/40/40?${index}`} />
                                 <div>
                                     {/* Die Kategorie und die Uhrzeit werden angezeigt */}
                                     <p>{item.transCategory}</p>
@@ -125,14 +127,16 @@ function Transaction() {
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
                                 {/* Falls transType 1 ist, soll die Farbe grün werden, sonst rot */}
-                                {item.transType == 1 ? (
-                                    <p key={index} className="green">{item.transValue} €</p>
-                                ) : (
-                                    <p key={index} className="red">{item.transValue} €</p>
-                                )}
+                                <div className="muell">
+                                    {item.transType == 1 ? (
+                                        <p key={index} className="green">{item.transValue} €</p>
+                                    ) : (
+                                        <p key={index} className="red">{item.transValue} €</p>
+                                    )}
 
-
-                                <button _id={item._id} onClick={(event) => deleteData(event, item._id)}>DELETE</button>
+                                    <img className="bin" src={bin} _id={item._id} onClick={(event) => deleteData(event, item._id)} />
+                                </div>
+                                {/* <button _id={item._id} onClick={(event) => deleteData(event, item._id)}><img src={bin} /></button> */}
                             </article>
                         </section>
                     );

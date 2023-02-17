@@ -1,18 +1,22 @@
-/* .transaction article {
+.allContent {
+    margin: 2rem;
+}
+
+.transaction article {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     align-items: flex-end;
     margin-bottom: 1rem;
-} */
+    align-items: center;
+}
 
 .transaction article div {
     text-align: left;
     width: 60%;
+    margin: 0 2rem;
 }
 
-.transaction article img {
-    border-radius: 50px;
-}
+
 
 .transaction h1 {
     margin: 1rem;
@@ -36,4 +40,18 @@
     background-color: #F7F7F7;
     margin-bottom: 4rem;
     margin-left: 1rem;
+}
+
+.muell {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bin {
+    margin-left: 2rem;
+    width: 8%;
+}
+
+.catImg {
+    border-radius: 50px;
 }

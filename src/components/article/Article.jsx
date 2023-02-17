@@ -1,5 +1,5 @@
 import "./Article.css";
-import logo from "../../assets/img/logo.svg"
+import logo from "../../assets/img/Hero.svg"
 
 const Article = (props) => {
     return (
