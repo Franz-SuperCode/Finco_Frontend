@@ -10,9 +10,9 @@ const InEx = () => {
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch(
-                "https://fincobackend-fincobackend.up.railway.app/api/transaction"
-            );
+            const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+            const endpoint = '/transaction'
+            const response = await fetch(baseUrl + endpoint);
             const jsonData = await response.json();
             setData(jsonData);
         }
