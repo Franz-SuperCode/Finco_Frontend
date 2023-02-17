@@ -11,6 +11,7 @@ import Reports from './pages/reports/Reports';
 import Add from './pages/add/Add';
 import Expense from './pages/expense/Expense';
 import Transaction from './pages/transaction/Transaction';
+import Remove from './pages/remove/Remove';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/transaction" element={<Transaction />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/add" element={<Add />} />
+          <Route path="/remove" element={<Remove />} />
           <Route path="/expense" element={<Expense />} />
         </Routes>
       </Router>

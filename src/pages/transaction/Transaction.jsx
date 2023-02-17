@@ -9,9 +9,13 @@ import Search from "../../assets/img/Search.svg"
 
 
 function Transaction() {
-    //! Daten aus API holen
+
+
+
     const [newData, setNewData] = useState();
+    const [refresh, setRefresh] = useState(true);
     const [inputValue, setInputValue] = useState();
+    //! Daten aus API holen
     useEffect(() => {
         async function getData() {
             const baseUrl = process.env.REACT_APP_BACKEND_URL2;
@@ -22,7 +26,7 @@ function Transaction() {
             console.log("dataJS:", dataJS);
         }
         getData();
-    }, [])
+    }, [refresh])
 
     //! Daten sortieren nach Datum absteigend -------
     const sortedData = newData?.sort((a, b) => {
@@ -32,8 +36,6 @@ function Transaction() {
         return dateB - dateA;
     });
     //! -------Input------------------
-
-
     const resultFilter = newData?.filter(object => {
         //Prüfe ob zunächst object.transCategory und inputValue Werte haben
         if (object.transCategory && inputValue) {
@@ -43,6 +45,24 @@ function Transaction() {
             return false
         }
     })
+
+    //! -------Remove------------------
+
+    // Hier werden alle Daten aus dem formData ans Backend geschickt beim klick auf den Button
+    const deleteData = async (event, _id) => {
+        event.preventDefault();
+        const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+        const endpoint = `/transaction/${_id}`
+        const data = await fetch(baseUrl + endpoint, {
+            method: "DELETE"
+        });
+        // const dataJS = await data.json();
+        // console.log(data);
+        setRefresh(prevData => !prevData)
+        //useNavigate mit nav sorgt dafür dass die Seite eine Seite zurück springt
+        // nav(-1);
+    }
+
 
 
     return (
@@ -69,11 +89,12 @@ function Transaction() {
                                 <img src={`https://unsplash.it/40/40?${index}`} />
                                 <div>
                                     {/* Die Kategorie und die Uhrzeit werden angezeigt */}
-                                    <p>{item.transCategory}</p>
+                                    <p>{item.transCategor}</p>
                                     <p>{item.transTime}</p>
                                 </div>
                                 {/* Der Transaktionswert wird angezeigt */}
                                 <p key={index}>{item.transValue} €</p>
+                                <button _id={item._id} onClick={(event) => deleteData(event, item._id)}>DELETE</button>
                             </article>
                         </section>
                     );
