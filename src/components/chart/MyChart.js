@@ -1,6 +1,7 @@
 import Chart from 'chart.js/auto';
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import "./MyChart.css"
 
 const MyChart = ({ data, color, type }) => {
     const chartData = {

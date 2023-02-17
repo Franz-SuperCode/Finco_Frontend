@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import MyChart from "../../components/chart/MyChart.js";
 import Navigation from "../../components/navigation/Navigation";
+import "./Reports.css";
+import home from "../../assets/img/logo.svg"
+import Article from "../../components/article/Article.jsx";
 
 function Reports() {
     const [data, setData] = useState([]);
@@ -26,17 +29,18 @@ function Reports() {
     }));
 
     return (
-        <main>
-            <h1>Reports</h1>
-            <div>
+        <main className="reports">
+            <Article
+                title="Reports" />
+            <div className="chartContainer">
                 <h2>Income Data</h2>
                 <MyChart data={dataWithType1} color="green" type="1" />
             </div>
-            <div>
+            <div className="chartContainer">
                 <h2>Expense Data</h2>
                 <MyChart data={dataWithType2} color="red" type="2" />
             </div>
-            <div>
+            <div className="chartContainer">
                 <h2>Difference Data</h2>
                 <MyChart data={dataDiff} color="purple" type="3" />
             </div>
