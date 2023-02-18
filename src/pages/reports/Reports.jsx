@@ -10,9 +10,11 @@ function Reports() {
 
     useEffect(() => {
         async function getData() {
-            const response = await fetch("https://fincobackend-fincobackend.up.railway.app/api/transaction");
-            const jsonData = await response.json();
-            setData(jsonData);
+            const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+            const endpoint = '/transaction'
+            const data = await fetch(baseUrl + endpoint);
+            const dataJS = await data.json();
+            setData(dataJS);
         }
         getData();
     }, []);
@@ -25,7 +27,7 @@ function Reports() {
     // Berechnen Sie die Differenz zwischen `transType` 1 und 2
     const dataDiff = dataWithType1.map((item, index) => ({
         transDate: item.transDate,
-        transValue: parseFloat(item.transValue) - parseFloat(dataWithType2[index].transValue)
+        transValue: parseFloat(item?.transValue) - parseFloat(dataWithType2[index]?.transValue)
     }));
 
     return (

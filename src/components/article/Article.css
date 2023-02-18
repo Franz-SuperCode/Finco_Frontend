@@ -28,11 +28,19 @@
 }
 
 .logo {
-    width: 10%;
+    width: 20%;
 }
 
-.Article section {
+.Article article {
     text-align: center;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     margin: 2rem 0 3rem;
+}
+
+.Article div a {
+    text-align: left;
+}
+
+.Article h1 {
+    font-size: 1.5rem;
 }

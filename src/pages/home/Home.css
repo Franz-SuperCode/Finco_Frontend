@@ -1,5 +1,5 @@
 .Home {
-    margin: 2rem;
+    margin: 3rem;
     text-align: center;
 }
 
@@ -8,10 +8,10 @@
     width: 100%;
 } */
 
-.Home article {
+/* .Home article {
     display: flex;
     justify-content: space-between;
-}
+} */
 
 .Home article div {
     display: flex;

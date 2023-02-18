@@ -70,13 +70,21 @@ function Transaction() {
             <section className="allContent">
                 <Article
                     title="All transaction" />
+                {/* Nur darstellen, falls kein Input da ist */}
+                {!inputValue && <InEx />}
+
+
                 <div className="searchbar">
                     {/* <img src={Search} /> */}
                     <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="🔍     Search Category"></input>
                 </div>
 
-                {/* Nur darstellen, falls kein Input da ist */}
-                {!inputValue && <InEx />}
+
+
+
+
+
+
 
                 {/*----------  Falls KEIN Input vorhanden ist, über das normale Daten Array mappen ----------- */}
                 {!inputValue && sortedData?.map((item, index) => {
