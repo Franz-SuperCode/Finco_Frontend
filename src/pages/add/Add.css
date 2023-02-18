@@ -1,3 +1,7 @@
+.add {
+    margin: 3rem;
+}
+
 .add div {
     display: flex;
     justify-content: space-between;
@@ -14,6 +18,7 @@
 
 .add h1 {
     margin: 2.5rem;
+    text-align: center;
 }
 
 .add form {

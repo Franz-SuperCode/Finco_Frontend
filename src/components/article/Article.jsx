@@ -6,8 +6,8 @@ const Article = (props) => {
     return (
         <div className="Article">
             <div>
-                <Link to="/account">  <img className="logo" src={logo} alt="Logo" /></Link>
-                <img className="profilePic" src="https://unsplash.it/50/50?1" />
+                <img className="logo" src={logo} alt="Logo" />
+                <Link to="/account">  <img className="profilePic" src="https://unsplash.it/50/50?1" /></Link>
             </div>
 
             <article>

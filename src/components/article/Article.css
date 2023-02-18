@@ -28,7 +28,7 @@
 }
 
 .logo {
-    width: 20%;
+    width: 10%;
 }
 
 .Article article {
@@ -42,5 +42,5 @@
 }
 
 .Article h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
