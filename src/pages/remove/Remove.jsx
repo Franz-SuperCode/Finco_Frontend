@@ -114,6 +114,8 @@ function Remove() {
             </form>
 
             {console.log(formData)}
+
+
         </main>
     );
 }

@@ -1,38 +1,23 @@
+.landingPage1 .logo,
+.landingPage1 .profilePic {
+    display: none;
+}
+
+
 .landingPage1 {
-    width: 100%;
-    margin: 20% 0%;
-    text-align: center;
-}
-
-.landingPage1 img {
-    width: 40%;
-    margin-bottom: 3rem;
-}
-
-.middleText {
-    width: 100%;
-    /* text-align: center; */
-    margin: 0px auto;
-}
-
-/* article h1 {
-    margin: 0px 0px 3rem 6rem;
-    font-weight: bolder;
-    width: 50%;
-} */
-
-/* article p {
-    margin: 0px 0px 3rem 3rem;
-    font-size: 12px;
-    width: 300px;
-} */
-
-.landingPage1 div {
+    margin: 3rem;
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.skip {
-    width: 30%
+.skip {}
+
+.div_skip {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 3rem;
 }

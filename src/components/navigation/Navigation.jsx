@@ -34,7 +34,7 @@ const Navigation = () => {
             )}
 
             <div className="Navigation">
-                <Link to="/"> <img src={home} /> </Link>
+                <Link to="/home"> <img src={home} /> </Link>
                 <Link to="/transaction"> <img src={creditCard} /> </Link>
                 <img onClick={() => setIsOpen(!isOpen)} src={plusCircle} />
                 <Link to="/reports"> <img src={pieChart} /> </Link>

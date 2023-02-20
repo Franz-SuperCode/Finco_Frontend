@@ -1,0 +1,44 @@
+ /* .Login {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ } */
+
+ .Login {
+     margin: 3rem;
+ }
+
+ .inputs {
+     display: flex;
+     flex-direction: column;
+     width: 80%;
+     margin: 0 auto;
+ }
+
+ .inputs p {
+     text-align: center;
+     margin-top: 2rem;
+ }
+
+ .inputs button {
+     width: 50%;
+     margin: 1rem auto;
+     /* padding: 0.5rem 1rem; */
+
+     padding: 1rem 3rem;
+     border: none;
+     border-radius: 20px;
+     background-image: linear-gradient(to bottom, #44BBFE, #2476D3);
+     color: #fafafa;
+ }
+
+ .Login form input {
+     padding: 1rem;
+     border-radius: 50px;
+     border: 1px solid grey;
+     margin: 0.5rem;
+ }
+
+ .Login .profilePic {
+     display: none;
+ }
