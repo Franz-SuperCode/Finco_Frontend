@@ -40,3 +40,8 @@
 .cardImg:hover {
     transform: rotateY(180deg);
 }
+
+.profilePic {
+    height: 50px;
+    width: 50px;
+}

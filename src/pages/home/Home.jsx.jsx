@@ -30,7 +30,7 @@ function Home() {
                 const umgewandelt = await data.json();
                 setUserData(umgewandelt.name);
                 // Hier können die Bildpfad hinzugefügt werden
-                setProfilePicture(umgewandelt.image);
+                setProfilePicture(process.env.REACT_APP_BACKEND_IMAGES2 + "/" + umgewandelt.image);
             } else {
                 console.log(`Error fetching user data: ${data.status} ${data.statusText}`)
                 navigate('/login')
