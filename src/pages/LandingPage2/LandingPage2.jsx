@@ -14,11 +14,15 @@ function Landingpage2() {
 
             <Article
                 title="Analyze your spending"
-                description="Lorem ipsum dolar sit amet" />
+                description="Finco will help you!" />
             {/* <p className="skip">Skip</p> */}
-            <Button
-                title="Get Started →"
-                path="/login_register" />
+
+            <div className='div_button'>
+                <Button
+                    title="Get Started →"
+                    path="/login_register" />
+            </div>
+
 
 
         </main>

@@ -15,10 +15,10 @@ function Landingpage1() {
 
       <Article
         title="Track your spend and income"
-        description="Lorem ipsum dolar sit amet" />
+        description="I would choose Finco" />
       {/* <p className="skip">Skip</p> */}
-      <div>
-        <Link className='skip' to="/home">Skip</Link>
+      <div className="div_skip">
+        <Link className='skip' to="/login_register">Skip</Link>
         <Button
           title="Next →"
           path="/landingpage2" />
