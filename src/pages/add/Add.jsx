@@ -61,6 +61,7 @@ function Add() {
         } catch (error) {
             console.error("Form submission error:", error);
         }
+        nav("/transaction")
     };
 
 

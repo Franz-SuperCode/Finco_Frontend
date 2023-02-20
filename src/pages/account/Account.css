@@ -1,6 +1,6 @@
 .Account {
     font-size: 1.5rem;
-    margin: 3rem;
+    margin: 2rem;
 }
 
 .Account section {
@@ -11,8 +11,4 @@
     gap: 2rem;
     width: 60%;
     margin: 0 auto;
-}
-
-.Account section p {
-    /* text-align: center; */
 }

@@ -53,7 +53,11 @@ function Login_register() {
         })
 
         // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter.
-        if (response.ok) register ? setRegister(false) : navigate('/home')
+        if (response.ok) register ? setRegister(false) : navigate('/home');
+
+        window.location.reload();
+
+
     }
 
     // Die AuthForm-Komponente gibt ein HTML-Formular mit Eingabefeldern für E-Mail und Passwort sowie eine Schaltfläche zum Einloggen oder Registrieren zurück.
@@ -79,7 +83,7 @@ function Login_register() {
 
 
 
-                    <button type="submit">{register ? 'Register' : 'Login'}</button>
+                    <button className="login_regButton" type="submit">{register ? 'Register' : 'Login'}</button>
                     <p onClick={() => setRegister(prev => !prev)}>{register ? 'Already have an account?' : ' Don´t have an account?'}</p>
                 </div>
             </form>

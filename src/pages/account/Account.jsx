@@ -54,19 +54,21 @@ function Account() {
 
 
     return (
-        <main className="Account">
-            <Article
-                title="Account Information"
-                img={profilePicture} />
-            <section>
-                <p>Name: {userData?.name}</p>
-                <p>E-Mail: {userData?.email}</p>
-                <p>Registered Date: {formattedDate}</p>
-                <p>Registered Time: {formattedTime}</p>
-            </section>
+        <>
+            <main className="Account">
+                <Article
+                    title="Account Information"
+                    img={profilePicture} />
+                <section>
+                    <p>Name: {userData?.name}</p>
+                    <p>E-Mail: {userData?.email}</p>
+                    <p>Registered Date: {formattedDate}</p>
+                    <p>Registered Time: {formattedTime}</p>
+                </section>
 
+            </main>
             <Navigation />
-        </main>
+        </>
     )
 }
 
