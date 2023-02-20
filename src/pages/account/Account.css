@@ -1,14 +1,62 @@
-.Account {
-    font-size: 1.5rem;
+.mainAccount {
     margin: 2rem;
 }
 
-.Account section {
+.Account {
+    margin-bottom: 2rem;
+}
+
+.Account__header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-    width: 60%;
-    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.Account__header--left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Account__header--left img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+
+
+.Account__section--card {
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+
+
+.Account__section--card-content__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.Account__section--card-content__row p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.Account__section--card-content__row p:last-child {
+    font-weight: normal;
+    color: #777;
+}
+
+.parent .Navigation {
+    margin-top: 15rem;
 }

@@ -54,22 +54,35 @@ function Account() {
 
 
     return (
-        <>
-            <main className="Account">
+        <div className="parent">
+            <main className="mainAccount">
                 <Article
                     title="Account Information"
-                    img={profilePicture} />
-                <section>
-                    <p>Name: {userData?.name}</p>
-                    <p>E-Mail: {userData?.email}</p>
-                    <p>Registered Date: {formattedDate}</p>
-                    <p>Registered Time: {formattedTime}</p>
-                </section>
-
+                    img={profilePicture}
+                />
+                <main className="Account">
+                    <div className="Account__section--card">
+                        <div className="Account__section--card-content">
+                            <div className="Account__section--card-content__row">
+                                <p>Email:</p>
+                                <p>{userData?.email}</p>
+                            </div>
+                            <div className="Account__section--card-content__row">
+                                <p>Registered Date:</p>
+                                <p>{formattedDate}</p>
+                            </div>
+                            <div className="Account__section--card-content__row">
+                                <p>Registered Time:</p>
+                                <p>{formattedTime}</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </main>
             <Navigation />
-        </>
-    )
+        </div>
+    );
+
 }
 
 export default Account;
