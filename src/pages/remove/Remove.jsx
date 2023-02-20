@@ -45,8 +45,10 @@ function Remove() {
     // Hier werden alle Daten aus dem formData ans Backend geschickt beim klick auf den Button
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+        const endpoint = `/transaction`
         try {
-            const response = await fetch("https://fincobackend-fincobackend.up.railway.app/api/transaction", {
+            const response = await fetch(baseUrl + endpoint, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

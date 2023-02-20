@@ -60,7 +60,7 @@ function Home() {
             {/* </div> */}
             {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
             {/* </article> */}
-            {/* cardImg oder  */}
+            <img src={profilePicture} />
             <img className="cardImg" src={Card} />
             <h2>Total Wallet</h2>
             <InEx />

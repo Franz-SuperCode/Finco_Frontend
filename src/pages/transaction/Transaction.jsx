@@ -91,7 +91,7 @@ function Transaction() {
     // Hier werden alle Daten aus dem formData ans Backend geschickt beim klick auf den Button
     const deleteData = async (event, _id) => {
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+        const baseUrl = process.env.REACT_APP_BACKEND_URL;
         const endpoint = `/transaction/${_id}`
         const data = await fetch(baseUrl + endpoint, {
             method: "DELETE"
@@ -124,11 +124,11 @@ function Transaction() {
                 {/* -------- Checkbox ----- /> */}
                 <div>
                     <label>
-                        <input name="transactionType" type="checkbox" checked={showIncome} onChange={handleIncomeChange} name="transactionType" />
+                        <input name="transactionType" type="checkbox" checked={showIncome} onChange={handleIncomeChange} />
                         Income
                     </label>
                     <label>
-                        <input name="transactionType" type="checkbox" checked={showExpense} onChange={handleExpenseChange} name="transactionType" />
+                        <input name="transactionType" type="checkbox" checked={showExpense} onChange={handleExpenseChange} />
                         Expense
                     </label>
                 </div>
