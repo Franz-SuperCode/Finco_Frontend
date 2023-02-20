@@ -5,7 +5,7 @@
 .add div {
     display: flex;
     justify-content: space-between;
-    margin: 2rem;
+    /* margin: 2rem; */
 }
 
 .add div img {
@@ -13,7 +13,7 @@
 }
 
 .backbutton {
-    width: 6%;
+    width: 10%;
 }
 
 .add h1 {

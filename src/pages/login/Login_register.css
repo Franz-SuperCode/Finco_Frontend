@@ -11,7 +11,6 @@
  .inputs {
      display: flex;
      flex-direction: column;
-     width: 80%;
      margin: 0 auto;
  }
 
@@ -23,7 +22,7 @@
  .inputs button {
      width: 50%;
      margin: 1rem auto;
-     /* padding: 0.5rem 1rem; */
+     padding: 0.5rem 1rem;
 
      padding: 1rem 3rem;
      border: none;
@@ -41,4 +40,8 @@
 
  .Login .profilePic {
      display: none;
+ }
+
+ .login_regButton {
+     text-align: center;
  }

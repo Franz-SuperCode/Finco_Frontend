@@ -1,11 +1,14 @@
 .menu_open {
 
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .menu_open img,
 .menu_open input,
-.menu_open .InEx {
+.menu_open .InEx,
+.menu_open p,
+.menu_open h1,
+.menu_open .checkbox {
     opacity: 0.2;
 }
 

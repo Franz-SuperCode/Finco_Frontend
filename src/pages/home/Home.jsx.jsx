@@ -48,30 +48,32 @@ function Home() {
 
 
     return (
-        <main className="Home">
-            <Article
-                title="Welcome Back"
-                description={userData?.name}
-                img={profilePicture} />
-            {/* <article> */}
-            {/* <div> */}
-            {/* <p>Welcome Back</p> */}
-            {/* Test ob es klappt mit User */}
-            {/* <h1>{userData}</h1> */}
-            {/* </div> */}
-            {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
-            {/* </article> */}
-            {/* <img src={profilePicture} /> */}
-            <img className="cardImg" src={Card} />
-            <h2>Total Wallet</h2>
-            <InEx />
-            <div className="spending">
-                <img src={Spending} />
-                <p>Monthly spending limit</p>
-                <p>5000 €</p>
-            </div>
+        <>
+            <main className="Home">
+                <Article
+                    title="Welcome Back"
+                    description={userData?.name}
+                    img={profilePicture} />
+                {/* <article> */}
+                {/* <div> */}
+                {/* <p>Welcome Back</p> */}
+                {/* Test ob es klappt mit User */}
+                {/* <h1>{userData}</h1> */}
+                {/* </div> */}
+                {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
+                {/* </article> */}
+                {/* <img src={profilePicture} /> */}
+                <img className="cardImg" src={Card} />
+                <h2>Total Wallet</h2>
+                <InEx />
+                <div className="spending">
+                    <img src={Spending} />
+                    <p>Monthly spending limit</p>
+                    <p>5000 €</p>
+                </div>
+            </main>
             <Navigation />
-        </main>
+        </>
     )
 }
 

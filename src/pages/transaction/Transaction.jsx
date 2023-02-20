@@ -146,7 +146,7 @@ function Transaction() {
         <main>
             <section className="allContent">
                 <Article
-                    title="All transaction"
+                    title="All transactions"
                     img={profilePicture}
                 />
 
@@ -162,15 +162,11 @@ function Transaction() {
 
 
                 {/* -------- Checkbox ----- /> */}
-                <div>
-                    <label>
-                        <input name="transactionType" type="checkbox" checked={showIncome} onChange={handleIncomeChange} />
-                        Income
-                    </label>
-                    <label>
-                        <input name="transactionType" type="checkbox" checked={showExpense} onChange={handleExpenseChange} />
-                        Expense
-                    </label>
+                <div className="checkbox">
+                    <input name="transactionType" type="checkbox" checked={showIncome} onChange={handleIncomeChange} />
+                    <label className="labelIncome">Income</label>
+                    <input name="transactionType" type="checkbox" checked={showExpense} onChange={handleExpenseChange} />
+                    <label className="labelExpense">Expense</label>
                 </div>
 
 
