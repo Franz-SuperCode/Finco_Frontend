@@ -10,6 +10,7 @@ import Article from "../../components/article/Article";
 function Home() {
     // State-Hook "user" wird initialisiert mit null, weil der Benutzer am Anfang noch nicht eingeloggt ist
     const [userData, setUserData] = useState(null)
+    const [profilePicture, setProfilePicture] = useState("");
     const navigate = useNavigate()
 
 
@@ -21,21 +22,16 @@ function Home() {
             //Route um alle Daten vom User zu bekommen
             const endpoint = '/user'
             // HTTP-Anfrage zum Backend-Server wird ausgeführt
+            // HTTP-Anfrage zum Backend-Server wird ausgeführt
             const data = await fetch(baseUrl + endpoint, {
                 credentials: 'include'
             })
-            console.log(data);
-
-
-
-            // Wenn HTTP-Anfrage erfolgreich war, werden die Benutzerdaten im State "user" gesetzt
-            // Andernfalls wird der Benutzer zurück zum Login-Bildschirm navigiert
+            // Wenn kein Fehler vorliegt, werden die Daten des Users gesetzt
             if (data.ok) {
-                const umgewandelt = await data.json()
-                console.log(umgewandelt);
-                setUserData(umgewandelt)
-                userData && console.log(userData);
-
+                const umgewandelt = await data.json();
+                setUserData(umgewandelt);
+                // Hier können die Bildpfad hinzugefügt werden
+                setProfilePicture(process.env.REACT_APP_BACKEND_IMAGES2 + "/" + umgewandelt.image);
             } else {
                 console.log(`Error fetching user data: ${data.status} ${data.statusText}`)
                 navigate('/login')
@@ -64,6 +60,7 @@ function Home() {
             {/* </div> */}
             {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
             {/* </article> */}
+            {/* cardImg oder  */}
             <img className="cardImg" src={Card} />
             <h2>Total Wallet</h2>
             <InEx />

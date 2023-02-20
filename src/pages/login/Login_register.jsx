@@ -13,8 +13,11 @@ function Login_register() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
+    const [image, setImage] = useState(null)
 
-
+    const handlePictureInputChange = (e) => {
+        setImage(e.target.files[0]);
+    }
     // Rufe die useNavigate-Funktion auf, um das Programm zur Weiterleitung des Benutzers nach der Authentifizierung aufzurufen.
     const navigate = useNavigate()
 
@@ -35,6 +38,11 @@ function Login_register() {
         formData.append('email', email)
         formData.append('password', password)
         formData.append('name', name)
+        formData.append('image', image)
+
+        const handlePictureInputChange = (e) => {
+            setImage(e.target.value);
+        }
 
 
         // Rufe die Backend-API mit fetch auf und übergeben das FormData-Objekt an den Server.
@@ -65,6 +73,8 @@ function Login_register() {
                     <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="E-Mail" />
                     <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
                     {register && <input onChange={(e) => setName(e.target.value)} type="name" placeholder="Name" />}
+                    {register && <input type="file" name="image" onChange={handlePictureInputChange} />}
+
 
 
 
