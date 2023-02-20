@@ -6,12 +6,13 @@ import "./Transaction.css"
 import fakeData from "../../fakeData.json"
 import Search from "../../assets/img/Search.svg"
 import bin from "../../assets/img/bin.svg"
+import { useNavigate } from "react-router-dom";
 
 
 function Transaction() {
-
+    const [userData, setUserData] = useState(null)
     const [transactionType, setTransactionType] = useState(1);
-
+    const [profilePicture, setProfilePicture] = useState("");
     const handleTransactionTypeChange = (event) => {
         setTransactionType(Number(event.target.value));
     };
@@ -21,10 +22,46 @@ function Transaction() {
     const [newData, setNewData] = useState();
     const [refresh, setRefresh] = useState(true);
     const [inputValue, setInputValue] = useState();
+    const navigate = useNavigate()
+
+
+
+    useEffect(() => {
+        // Funktion, die die Daten des Benutzers vom Backend-Server holt
+        const getUserDaten = async () => {
+            // URL und Endpunkt des Backend-Servers werden definiert
+            const baseUrl = process.env.REACT_APP_BACKEND_URL
+            //Route um alle Daten vom User zu bekommen
+            const endpoint = '/user'
+            // HTTP-Anfrage zum Backend-Server wird ausgeführt
+            // HTTP-Anfrage zum Backend-Server wird ausgeführt
+            const data = await fetch(baseUrl + endpoint, {
+                credentials: 'include'
+            })
+            // Wenn kein Fehler vorliegt, werden die Daten des Users gesetzt
+            if (data.ok) {
+                const umgewandelt = await data.json();
+                setUserData(umgewandelt);
+                // Hier können die Bildpfad hinzugefügt werden
+                setProfilePicture(process.env.REACT_APP_BACKEND_IMAGES + "/" + umgewandelt.image);
+            } else {
+                console.log(`Error fetching user data: ${data.status} ${data.statusText}`)
+                navigate('/login')
+            }
+            // console.log(user.email);
+        }
+        // Aufruf der Funktion, die die Benutzerdaten holt
+        getUserDaten()
+    }, [])
+
+
+
+
+
     //! Daten aus API holen
     useEffect(() => {
         async function getData() {
-            const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+            const baseUrl = process.env.REACT_APP_BACKEND_URL;
             const endpoint = '/transaction'
             const data = await fetch(baseUrl + endpoint);
             const dataJS = await data.json();
@@ -109,7 +146,10 @@ function Transaction() {
         <main>
             <section className="allContent">
                 <Article
-                    title="All transaction" />
+                    title="All transaction"
+                    img={profilePicture}
+                />
+
                 {/* Nur darstellen, falls kein Input da ist */}
                 {!inputValue && <InEx />}
 

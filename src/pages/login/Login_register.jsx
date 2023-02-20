@@ -27,7 +27,7 @@ function Login_register() {
         // Definiere die Basis-URL für das Backend anhand der Umgebungsvariablen-Datei.
 
         // const baseUrl = process.env.REACT_APP_BACKEND_URL
-        const baseUrl = process.env.REACT_APP_BACKEND_URL2
+        const baseUrl = process.env.REACT_APP_BACKEND_URL
         // console.log(baseUrl)
 
         // Definiere die Endpunkte für die Authentifizierung entweder für die Registrierung oder für den Login.

@@ -18,7 +18,7 @@ function Home() {
         // Funktion, die die Daten des Benutzers vom Backend-Server holt
         const getUserDaten = async () => {
             // URL und Endpunkt des Backend-Servers werden definiert
-            const baseUrl = process.env.REACT_APP_BACKEND_URL2
+            const baseUrl = process.env.REACT_APP_BACKEND_URL
             //Route um alle Daten vom User zu bekommen
             const endpoint = '/user'
             // HTTP-Anfrage zum Backend-Server wird ausgeführt
@@ -31,7 +31,7 @@ function Home() {
                 const umgewandelt = await data.json();
                 setUserData(umgewandelt);
                 // Hier können die Bildpfad hinzugefügt werden
-                setProfilePicture(process.env.REACT_APP_BACKEND_IMAGES2 + "/" + umgewandelt.image);
+                setProfilePicture(process.env.REACT_APP_BACKEND_IMAGES + "/" + umgewandelt.image);
             } else {
                 console.log(`Error fetching user data: ${data.status} ${data.statusText}`)
                 navigate('/login')
@@ -51,7 +51,8 @@ function Home() {
         <main className="Home">
             <Article
                 title="Welcome Back"
-                description={userData?.name} />
+                description={userData?.name}
+                img={profilePicture} />
             {/* <article> */}
             {/* <div> */}
             {/* <p>Welcome Back</p> */}
@@ -60,7 +61,7 @@ function Home() {
             {/* </div> */}
             {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
             {/* </article> */}
-            <img src={profilePicture} />
+            {/* <img src={profilePicture} /> */}
             <img className="cardImg" src={Card} />
             <h2>Total Wallet</h2>
             <InEx />

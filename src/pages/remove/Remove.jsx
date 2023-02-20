@@ -45,7 +45,7 @@ function Remove() {
     // Hier werden alle Daten aus dem formData ans Backend geschickt beim klick auf den Button
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+        const baseUrl = process.env.REACT_APP_BACKEND_URL;
         const endpoint = `/transaction`
         try {
             const response = await fetch(baseUrl + endpoint, {
