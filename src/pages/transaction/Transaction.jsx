@@ -10,7 +10,13 @@ import bin from "../../assets/img/bin.svg"
 
 function Transaction() {
 
+    const [transactionType, setTransactionType] = useState(1);
 
+    const handleTransactionTypeChange = (event) => {
+        setTransactionType(Number(event.target.value));
+    };
+    const [showIncome, setShowIncome] = useState(false);
+    const [showExpense, setShowExpense] = useState(false);
 
     const [newData, setNewData] = useState();
     const [refresh, setRefresh] = useState(true);
@@ -35,7 +41,7 @@ function Transaction() {
         const dateB = new Date(b.transDate);
         return dateB - dateA;
     });
-    //! -------Input------------------
+    //! -------Input Category------------------
     const resultFilter = newData?.filter(object => {
         //Prüfe ob zunächst object.transCategory und inputValue Werte haben
         if (object.transCategory && inputValue) {
@@ -45,6 +51,40 @@ function Transaction() {
             return false
         }
     })
+
+    //! -------Input Income-Expense------------------
+    const resultFilterInEx = newData?.filter(object => {
+        if (object.transType && inputValue) {
+            const transactionType = object.transType == 1 ? 'income' : 'expense';
+            return transactionType.toLowerCase() === inputValue.toLowerCase();
+        } else if (!inputValue) {
+            return true; // Wenn kein Eingabewert vorhanden ist, gebe alle Objekte zurück
+        } else {
+            return false; // Wenn keine Übereinstimmung gefunden wurde, gebe false zurück
+        }
+    });
+
+    //TODO ------Checkbox---------------
+
+    const handleIncomeChange = (event) => {
+        setShowIncome(event.target.checked);
+    };
+
+    const handleExpenseChange = (event) => {
+        setShowExpense(event.target.checked);
+    };
+
+    const resultFilterCheckbox = newData?.filter(object => {
+        if (object.transType && showIncome && !showExpense) {
+            return object.transType == 1;
+        } else if (object.transType && showExpense && !showIncome) {
+            return object.transType == 2;
+        } else {
+            return false;
+        }
+    });
+    //TODO ---------------------
+
 
     //! -------Remove------------------
 
@@ -76,19 +116,59 @@ function Transaction() {
 
                 <div className="searchbar">
                     {/* <img src={Search} /> */}
-                    <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="🔍     Search Category"></input>
+                    <input onChange={(e) => setInputValue(e.target.value)} type="text" placeholder="🔍     Search Category or Type"></input>
                 </div>
 
 
 
-
-
-
+                {/* -------- Checkbox ----- /> */}
+                <div>
+                    <label>
+                        <input name="transactionType" type="checkbox" checked={showIncome} onChange={handleIncomeChange} name="transactionType" />
+                        Income
+                    </label>
+                    <label>
+                        <input name="transactionType" type="checkbox" checked={showExpense} onChange={handleExpenseChange} name="transactionType" />
+                        Expense
+                    </label>
+                </div>
 
 
                 {/*----------  Falls KEIN Input vorhanden ist, über das normale Daten Array mappen ----------- */}
-                {!inputValue && sortedData?.map((item, index) => {
+                {!showExpense && !showIncome && !inputValue && sortedData?.map((item, index) => {
                     console.log(item);
+                    return (
+                        <section className="transaction" key={index}>
+                            {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
+                            {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
+                            <article>
+                                {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
+                                <img className="catImg" src={`https://unsplash.it/40/40?${index}`} />
+                                <div>
+                                    {/* Die Kategorie und die Uhrzeit werden angezeigt */}
+                                    <p>{item.transCategory}</p>
+                                    <p>{item.transTime}</p>
+                                </div>
+                                {/* Der Transaktionswert wird angezeigt */}
+                                {/* Falls transType 1 ist, soll die Farbe grün werden, sonst rot */}
+                                <div className="muell">
+                                    {item.transType == 1 ? (
+                                        <p key={index} className="green">{item.transValue} €</p>
+                                    ) : (
+                                        <p key={index} className="red">{item.transValue} €</p>
+                                    )}
+
+                                    <img className="bin" src={bin} _id={item._id} onClick={(event) => deleteData(event, item._id)} />
+                                </div>
+                                {/* <button _id={item._id} onClick={(event) => deleteData(event, item._id)}><img src={bin} /></button> */}
+                            </article>
+                        </section>
+                    );
+                })}
+
+                {/* ----------  Falls die Checkbox Income oder Expense ausgewählt wurde, über das Array mappen ---- */}
+                {(showIncome || showExpense) && resultFilterCheckbox?.map((item, index) => {
+
                     return (
                         <section className="transaction" key={index}>
                             {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
@@ -120,7 +200,37 @@ function Transaction() {
 
                 {/*----------  Falls ein Input vorhanden ist, über das Filter Array mappen ----------- */}
                 {inputValue && resultFilter?.map((item, index) => {
+                    return (
+                        <section className="transaction" key={index}>
+                            {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
+                            {index === 0 || item.transDate !== sortedData[index - 1]?.transDate ? <h1>{item.transDate}</h1> : null}
+                            <article>
+                                {/* Ein Bild wird geladen, dessen URL aus einer Zufallszahl erzeugt wird */}
+                                <img className="catImg" src={`https://unsplash.it/40/40?${index}`} />
+                                <div>
+                                    {/* Die Kategorie und die Uhrzeit werden angezeigt */}
+                                    <p>{item.transCategory}</p>
+                                    <p>{item.transTime}</p>
+                                </div>
+                                {/* Der Transaktionswert wird angezeigt */}
+                                {/* Falls transType 1 ist, soll die Farbe grün werden, sonst rot */}
+                                <div className="muell">
+                                    {item.transType == 1 ? (
+                                        <p key={index} className="green">{item.transValue} €</p>
+                                    ) : (
+                                        <p key={index} className="red">{item.transValue} €</p>
+                                    )}
 
+                                    <img className="bin" src={bin} _id={item._id} onClick={(event) => deleteData(event, item._id)} />
+                                </div>
+                                {/* <button _id={item._id} onClick={(event) => deleteData(event, item._id)}><img src={bin} /></button> */}
+                            </article>
+                        </section>
+                    );
+                })}
+
+                {/*----------  Falls ein Income/Expense Input vorhanden ist, über das Filter Array mappen ----------- */}
+                {inputValue && resultFilterInEx?.map((item, index) => {
                     return (
                         <section className="transaction" key={index}>
                             {/* Wenn es das erste Element im Array ist oder das aktuelle Datum ungleich dem vorherigen, wird ein <h1> mit dem Datum erzeugt */}
