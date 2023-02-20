@@ -4,9 +4,9 @@ import logo from "../../assets/img/logo.svg"
 import Article from "../../components/article/Article.jsx"
 import Button from "../../components/button/Button";
 import Footer from "../../components/footer/Footer.jsx";
-import "./Login.css"
+import "./Login_register.css"
 
-function Login() {
+function Login_register() {
 
     // Definiere drei Zustandsvariablen mit useState, die die Registrierung, die E-Mail und das Passwort des Benutzers speichern.
     const [register, setRegister] = useState(false)
@@ -45,21 +45,32 @@ function Login() {
         })
 
         // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter.
-        if (response.ok) register ? setRegister(false) : navigate('/')
+        if (response.ok) register ? setRegister(false) : navigate('/home')
     }
 
     // Die AuthForm-Komponente gibt ein HTML-Formular mit Eingabefeldern für E-Mail und Passwort sowie eine Schaltfläche zum Einloggen oder Registrieren zurück.
     return (
         <main className="Login">
+            {register && <Article
+                title="Create an account"
+                description="Start with Finco"
+            />}
 
+            {!register && <Article
+                title="Login"
+                description="Continue where you left off"
+            />}
             <form onSubmit={sendAuthentification}>
-                <div>
+                <div className="inputs">
                     <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="E-Mail" />
                     <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" />
                     {register && <input onChange={(e) => setName(e.target.value)} type="name" placeholder="Name" />}
 
+
+
+
                     <button type="submit">{register ? 'Register' : 'Login'}</button>
-                    <p onClick={() => setRegister(prev => !prev)}>{register ? 'Already have an account?' : 'You don´t have an account yet?'}</p>
+                    <p onClick={() => setRegister(prev => !prev)}>{register ? 'Already have an account?' : ' Don´t have an account?'}</p>
                 </div>
             </form>
 
@@ -67,4 +78,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Login_register;

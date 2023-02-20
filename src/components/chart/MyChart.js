@@ -4,6 +4,20 @@ import { Line } from 'react-chartjs-2';
 import "./MyChart.css"
 
 const MyChart = ({ data, color, type }) => {
+
+    const options = {
+        scales: {
+            x: {
+                type: 'time', // Falls die Labels auf der X-Achse Datumsangaben sind
+                time: {
+                    unit: 'month' // Definiere die Zeitspanne, die auf der X-Achse angezeigt werden soll
+                }
+            },
+            y: {
+                beginAtZero: true // Setze den Startwert der Y-Achse auf 0
+            }
+        }
+    };
     const chartData = {
         labels: data.map((datum) => datum.transDate),
         datasets: [

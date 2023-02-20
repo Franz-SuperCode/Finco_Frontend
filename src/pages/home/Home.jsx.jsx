@@ -4,7 +4,8 @@ import Card from "../../assets/img/Card.svg"
 import InEx from "../../components/inex/InEx";
 import Navigation from "../../components/navigation/Navigation";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Article from "../../components/article/Article";
 
 function Home() {
     // State-Hook "user" wird initialisiert mit null, weil der Benutzer am Anfang noch nicht eingeloggt ist
@@ -32,7 +33,7 @@ function Home() {
             if (data.ok) {
                 const umgewandelt = await data.json()
                 console.log(umgewandelt);
-                setUserData(umgewandelt.name)
+                setUserData(umgewandelt)
                 userData && console.log(userData);
 
             } else {
@@ -52,14 +53,17 @@ function Home() {
 
     return (
         <main className="Home">
-            <article>
-                <div>
-                    <p>Welcome Back</p>
-                    {/* Test ob es klappt mit User */}
-                    <h1>{userData}</h1>
-                </div>
-                <img className="profilePic" src="https://unsplash.it/50/50?1" />
-            </article>
+            <Article
+                title="Welcome Back"
+                description={userData?.name} />
+            {/* <article> */}
+            {/* <div> */}
+            {/* <p>Welcome Back</p> */}
+            {/* Test ob es klappt mit User */}
+            {/* <h1>{userData}</h1> */}
+            {/* </div> */}
+            {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
+            {/* </article> */}
             <img className="cardImg" src={Card} />
             <h2>Total Wallet</h2>
             <InEx />

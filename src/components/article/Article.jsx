@@ -1,18 +1,19 @@
 import "./Article.css";
-import logo from "../../assets/img/logo.svg"
+import logo from "../../assets/img/Hero.svg"
+import { Link } from "react-router-dom";
 
 const Article = (props) => {
     return (
         <div className="Article">
             <div>
                 <img className="logo" src={logo} alt="Logo" />
-                <img className="profilePic" src="https://unsplash.it/50/50?1" />
+                <Link to="/account">  <img className="profilePic" src="https://unsplash.it/50/50?1" /></Link>
             </div>
 
-            <section>
+            <article>
                 <h1>{props.title}</h1>
                 <p>{props.description}</p>
-            </section>
+            </article>
         </div>
     );
 }
