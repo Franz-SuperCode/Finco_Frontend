@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../assets/img/Card.svg";
 import "./Add.css";
 import backIcon from "../../assets/img/backIcon.svg"
@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 function Add() {
     const [checked, setChecked] = useState(true);
     const nav = useNavigate();
+    const [userData, setUserData] = useState(null)
+
 
     // const [value, setValue] = useState(moment().format("DD-MM-YYYY"))
 
@@ -45,7 +47,7 @@ function Add() {
     // Hier werden alle Daten aus dem formData ans Backend geschickt beim klick auf den Button
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+        const baseUrl = process.env.REACT_APP_BACKEND_URL;
         const endpoint = `/transaction`
         try {
             const response = await fetch(baseUrl + endpoint, {
@@ -64,12 +66,11 @@ function Add() {
 
 
 
-
     return (
         <main className="add">
             <div>
                 <img className="backbutton" alt="backbutton" onClick={() => nav(-1)} src={backIcon} />
-                <img className="profilePic" src="https://unsplash.it/50/50?1" />
+                {/* <img className="profilePic" src="https://unsplash.it/50/50?1" /> */}
             </div>
 
             <h1>Add Transaction</h1>

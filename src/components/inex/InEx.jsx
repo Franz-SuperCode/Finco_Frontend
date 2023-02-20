@@ -10,7 +10,7 @@ const InEx = () => {
 
     useEffect(() => {
         async function getData() {
-            const baseUrl = process.env.REACT_APP_BACKEND_URL2;
+            const baseUrl = process.env.REACT_APP_BACKEND_URL;
             const endpoint = '/transaction'
             const response = await fetch(baseUrl + endpoint);
             const jsonData = await response.json();

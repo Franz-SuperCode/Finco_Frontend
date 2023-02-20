@@ -7,7 +7,7 @@ const Article = (props) => {
         <div className="Article">
             <div>
                 <img className="logo" src={logo} alt="Logo" />
-                <Link to="/account">  <img className="profilePic" src="https://unsplash.it/50/50?1" /></Link>
+                <Link to="/account">  <img className="profilePic" src={props.img} /></Link>
             </div>
 
             <article>
