@@ -28,14 +28,57 @@ function Reports() {
     const dataWithType1 = data.filter((item) => item.transType == 1);
     const dataWithType2 = data.filter((item) => item.transType == 2);
 
+    // Summieren Sie die Einkommen und Ausgaben für jedes Datum
+    const dataWithType1ByDate = {};
+    dataWithType1.forEach((item) => {
+        const date = new Date(item.transDate).toLocaleDateString();
+        if (!dataWithType1ByDate[date]) {
+            dataWithType1ByDate[date] = 0;
+        }
+        dataWithType1ByDate[date] += parseFloat(item.transValue);
+    });
 
-    // Berechnen Sie die Differenz zwischen `transType` 1 und 2
-    const dataDiff = dataWithType1.map((item, index) => ({
-        transDate: item.transDate,
-        transValue: parseFloat(item?.transValue) - parseFloat(dataWithType2[index]?.transValue)
+    const dataWithType2ByDate = {};
+    dataWithType2.forEach((item) => {
+        const date = new Date(item.transDate).toLocaleDateString();
+        if (!dataWithType2ByDate[date]) {
+            dataWithType2ByDate[date] = 0;
+        }
+        dataWithType2ByDate[date] += parseFloat(item.transValue);
+    });
+
+    // Berechnen Sie die Differenz zwischen Einkommen und Ausgaben
+    const dataDiff = Object.entries(dataWithType1ByDate).map(([date, value]) => ({
+        transDate: date,
+        transValue: value - (dataWithType2ByDate[date] || 0),
+        transType: 3,
     }));
 
+    // Entfernen Sie doppelte Datumsangaben und sortieren Sie die Daten nach Datum
+    const mergedData = [...dataWithType1, ...dataWithType2, ...dataDiff];
+    const sortedData = mergedData
+        .sort((a, b) => new Date(a.transDate) - new Date(b.transDate))
+        .reduce((acc, curr) => {
+            const currDate = new Date(curr.transDate).toLocaleDateString();
+            const prevDate = acc.length > 0 ? new Date(acc[acc.length - 1].transDate).toLocaleDateString() : null;
 
+            if (currDate !== prevDate) {
+                acc.push(curr);
+            } else {
+                const lastIndex = acc.length - 1;
+                const lastItem = acc[lastIndex];
+                acc[lastIndex] = {
+                    ...lastItem,
+                    transValue: (parseFloat(lastItem.transValue) + parseFloat(curr.transValue)) / 2,
+                };
+            }
+
+            return acc;
+        }, []);
+
+    const sortedDataWithType1 = sortedData.filter((item) => item.transType == 1);
+    const sortedDataWithType2 = sortedData.filter((item) => item.transType == 2);
+    const sortedDataDiff = sortedData.filter((item) => item.transType == 1 || item.transType == 2);
 
     useEffect(() => {
         // Funktion, die die Daten des Benutzers vom Backend-Server holt
@@ -65,25 +108,29 @@ function Reports() {
         getUserDaten()
     }, [])
 
+    console.log(sortedDataDiff);
+    console.log(sortedDataWithType1);
+    console.log(sortedDataWithType2);
 
     return (
         <>
             <main className="reports">
                 <Article
                     title="Reports"
-                    img={profilePicture} />
+                    img={profilePicture}
+                />
                 <div className="chartContainer">
                     <h2>Income Data</h2>
-                    <MyChart data={dataWithType1} color="green" type="1" />
+                    <MyChart data={sortedDataWithType1.sort((a, b) => new Date(a.transDate) - new Date(b.transDate))} color="green" type="1" />
                 </div>
                 <div className="chartContainer">
                     <h2>Expense Data</h2>
-                    <MyChart data={dataWithType2} color="red" type="2" />
+                    <MyChart data={sortedDataWithType2.sort((a, b) => new Date(a.transDate) - new Date(b.transDate))} color="red" type="2" />
                 </div>
-                <div className="chartContainer">
+                {/* <div className="chartContainer">
                     <h2>Difference Data</h2>
-                    <MyChart data={dataDiff} color="purple" type="3" />
-                </div>
+                    <MyChart data={sortedDataDiff.sort((a, b) => new Date(a.transDate) - new Date(b.transDate))} color="purple" type="3" />
+                </div> */}
             </main>
             <Navigation />
         </>

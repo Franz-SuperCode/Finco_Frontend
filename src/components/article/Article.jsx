@@ -7,7 +7,7 @@ const Article = (props) => {
         <div className="Article">
             <div>
                 <img className="logo" src={logo} alt="Logo" />
-                <Link to="/account">  <img className="profilePic" src={props.img} /></Link>
+                <div className="div_acc">  <Link to="/account">  <img className="profilePic" src={props.img} /></Link></div>
             </div>
 
             <article>

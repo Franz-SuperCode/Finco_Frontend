@@ -11,6 +11,10 @@ const MyChart = ({ data, color, type }) => {
                 type: 'time', // Falls die Labels auf der X-Achse Datumsangaben sind
                 time: {
                     unit: 'month' // Definiere die Zeitspanne, die auf der X-Achse angezeigt werden soll
+                },
+                ticks: {
+                    autoSkip: true, // automatisches Überspringen von Labeln, wenn es zu viele gibt
+                    maxTicksLimit: 2, // maximale Anzahl der anzuzeigenden Label
                 }
             },
             y: {
@@ -18,6 +22,8 @@ const MyChart = ({ data, color, type }) => {
             }
         }
     };
+
+
     const chartData = {
         labels: data.map((datum) => datum.transDate),
         datasets: [

@@ -48,3 +48,9 @@
 .Article p {
     font-size: 1.5rem;
 }
+
+.Article .div_acc {
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+    border-radius: 50px;
+    padding: 0.5rem 0.5rem;
+}

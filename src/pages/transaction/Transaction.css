@@ -84,3 +84,11 @@
 .checkbox input[type=checkbox] {
     transform: scale(1.5);
 }
+
+
+.transaction {
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+    border-radius: 28px;
+    padding: 0.1rem 1rem;
+    margin-top: 1rem;
+}
