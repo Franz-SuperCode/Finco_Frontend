@@ -13,12 +13,8 @@ function Transaction() {
     const [userData, setUserData] = useState(null)
     const [transactionType, setTransactionType] = useState(1);
     const [profilePicture, setProfilePicture] = useState("");
-    const handleTransactionTypeChange = (event) => {
-        setTransactionType(Number(event.target.value));
-    };
     const [showIncome, setShowIncome] = useState(false);
     const [showExpense, setShowExpense] = useState(false);
-
     const [newData, setNewData] = useState();
     const [refresh, setRefresh] = useState(true);
     const [inputValue, setInputValue] = useState();
@@ -53,7 +49,6 @@ function Transaction() {
         // Aufruf der Funktion, die die Benutzerdaten holt
         getUserDaten()
     }, [])
-
 
 
 
