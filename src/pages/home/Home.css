@@ -31,17 +31,23 @@
     border-radius: 20px;
 }
 
+
+.profilePic {
+    height: 50px;
+    width: 50px;
+}
+
 .cardImg {
     width: 100%;
     position: relative;
     transition: transform 0.5s;
 }
 
-.cardImg:hover {
-    transform: rotateY(180deg);
+.cardImg.rotated {
+    filter: brightness(0.5);
+    opacity: 0.5;
 }
 
-.profilePic {
-    height: 50px;
-    width: 50px;
+.rotated {
+    transform: rotateY(180deg);
 }

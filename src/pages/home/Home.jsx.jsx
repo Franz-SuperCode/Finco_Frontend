@@ -47,23 +47,22 @@ function Home() {
     }, [userData]);
 
 
+    const [isRotated, setIsRotated] = useState(false);
+
+    const toggleRotate = () => {
+        setIsRotated(!isRotated);
+    };
+
     return (
         <>
             <main className="Home">
                 <Article
                     title="Welcome Back"
                     description={userData?.name}
-                    img={profilePicture} />
-                {/* <article> */}
-                {/* <div> */}
-                {/* <p>Welcome Back</p> */}
-                {/* Test ob es klappt mit User */}
-                {/* <h1>{userData}</h1> */}
-                {/* </div> */}
-                {/* <Link to="/account"><img className="profilePic" src="https://unsplash.it/50/50?1" /> </Link> */}
-                {/* </article> */}
-                {/* <img src={profilePicture} /> */}
-                <img className="cardImg" src={Card} />
+                    img={profilePicture}
+                />
+                <img className={`cardImg ${isRotated ? 'rotated' : ''}`} src={Card} onClick={toggleRotate} />
+
                 <h2>Total Wallet</h2>
                 <InEx />
                 <div className="spending">
@@ -74,6 +73,7 @@ function Home() {
             </main>
             <Navigation />
         </>
+
     )
 }
 
