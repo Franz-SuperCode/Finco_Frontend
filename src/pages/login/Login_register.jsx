@@ -53,9 +53,12 @@ function Login_register() {
         })
 
         // Überprüfe die Antwort des Servers. Wenn der Server eine positive Antwort zurückgibt, leite den Benutzer entweder zur Registrierungsseite oder zum Dashboard weiter.
-        if (response.ok) register ? setRegister(false) : navigate('/home');
-
-        window.location.reload();
+        if (response.ok) {
+            register ? setRegister(false) : navigate('/home');
+            window.location.reload();
+        } else {
+            navigate('/login_register');
+        }
 
 
     }
