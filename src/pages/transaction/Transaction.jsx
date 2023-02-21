@@ -146,7 +146,8 @@ function Transaction() {
                 />
 
                 {/* Nur darstellen, falls kein Input da ist */}
-                {!inputValue && <InEx />}
+                {!inputValue && <InEx
+                    refresh={refresh} />}
 
 
                 <div className="searchbar">

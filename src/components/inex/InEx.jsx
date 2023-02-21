@@ -3,7 +3,7 @@ import Income from "../../assets/img/Income.svg";
 import Expense from "../../assets/img/Expense.svg";
 import { useEffect, useState } from "react";
 
-const InEx = () => {
+const InEx = (props) => {
     const [data, setData] = useState([]);
     const [summeIncome, setSummeIncome] = useState(0);
     const [summeExpense, setSummeExpense] = useState(0);
@@ -17,7 +17,7 @@ const InEx = () => {
             setData(jsonData);
         }
         getData();
-    }, []);
+    }, [props.refresh]);
 
     useEffect(() => {
         // Hilfsfunktion, die die transValue aller Objekte addiert
