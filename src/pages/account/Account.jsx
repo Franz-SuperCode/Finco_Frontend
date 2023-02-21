@@ -64,6 +64,10 @@ function Account() {
                     <div className="Account__section--card">
                         <div className="Account__section--card-content">
                             <div className="Account__section--card-content__row">
+                                <p>Name:</p>
+                                <p>{userData?.name}</p>
+                            </div>
+                            <div className="Account__section--card-content__row">
                                 <p>Email:</p>
                                 <p>{userData?.email}</p>
                             </div>
