@@ -34,7 +34,7 @@ function Home() {
                 setProfilePicture(process.env.REACT_APP_BACKEND_IMAGES + "/" + umgewandelt.image);
             } else {
                 console.log(`Error fetching user data: ${data.status} ${data.statusText}`)
-                navigate('/login')
+                navigate('/login_register')
             }
             // console.log(user.email);
         }
