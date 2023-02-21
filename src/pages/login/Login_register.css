@@ -45,3 +45,7 @@
  .login_regButton {
      text-align: center;
  }
+
+ .Login .Article .div_acc {
+     display: none;
+ }
