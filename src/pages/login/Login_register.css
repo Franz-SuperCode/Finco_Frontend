@@ -49,3 +49,8 @@
  .Login .Article .div_acc {
      display: none;
  }
+
+ .landingPage1 .Article .div_acc,
+ .landingPage2 .Article .div_acc {
+     display: none;
+ }
