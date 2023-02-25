@@ -6,6 +6,12 @@
     gap: 4rem;
     margin: 1rem;
     margin-top: 5rem;
+    position: fixed;
+    bottom: 0px;
+    transform: translateY(100%);
+    margin-bottom: 65px;
+    background-color: #fff;
+    width: 100%;
 }
 
 .Navigation a img {

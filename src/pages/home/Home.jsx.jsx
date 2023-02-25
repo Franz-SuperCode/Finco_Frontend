@@ -71,7 +71,7 @@ function Home() {
                     <p>5000 €</p>
                 </div>
             </main>
-            <Navigation />
+            <Navigation className="navbar" />
         </>
 
     )
