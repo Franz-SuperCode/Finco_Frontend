@@ -3,6 +3,8 @@
     /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
+.menu_open main,
+.menu_open article,
 .menu_open img,
 .menu_open input,
 .menu_open .InEx,
@@ -16,12 +18,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    bottom: 0vh;
 }
 
 .InEx_Input button {
     padding: 1rem;
     margin: 0.2rem;
     border-radius: 50px;
+    margin-bottom: 10vh;
+    background-color: #fff;
+    opacity: 100%;
+
 }
 
 .incomeButton:hover {
