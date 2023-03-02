@@ -30,7 +30,6 @@ function Transaction() {
             //Route um alle Daten vom User zu bekommen
             const endpoint = '/user'
             // HTTP-Anfrage zum Backend-Server wird ausgeführt
-            // HTTP-Anfrage zum Backend-Server wird ausgeführt
             const data = await fetch(baseUrl + endpoint, {
                 credentials: 'include'
             })
